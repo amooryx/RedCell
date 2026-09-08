@@ -1,0 +1,820 @@
+{
+ "generated_tools": 100,
+ "categories": [
+  "Active Directory",
+  "Cloud & Container",
+  "Credential Access",
+  "Defensive & Research",
+  "Evasion & OPSEC",
+  "Exfiltration",
+  "Lateral Movement",
+  "Payload / Initial Access",
+  "Recon & OSINT",
+  "Red Team",
+  "Situational Awareness",
+  "Web AppSec"
+ ],
+ "tools": [
+  {
+   "name": "acl-abuser",
+   "category": "Active Directory",
+   "description": "AD ACL and delegation abuse",
+   "entry": "acl_abuser.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/acl-abuser"
+  },
+  {
+   "name": "ad-enum",
+   "category": "Active Directory",
+   "description": "AD domain enumeration",
+   "entry": "ad_enum.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/ad-enum"
+  },
+  {
+   "name": "adcs-audit",
+   "category": "Active Directory",
+   "description": "Review AD Certificate Services templates for known misconfiguration classes",
+   "entry": "adcs_audit.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/adcs-audit"
+  },
+  {
+   "name": "asrep-roast",
+   "category": "Active Directory",
+   "description": "Enumerate accounts with Kerberos pre-auth disabled (AS-REP roasting candidates)",
+   "entry": "asrep_roast.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/asrep-roast"
+  },
+  {
+   "name": "dc-checker",
+   "category": "Active Directory",
+   "description": "Domain controller posture",
+   "entry": "dc_checker.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/dc-checker"
+  },
+  {
+   "name": "dcsync-check",
+   "category": "Active Directory",
+   "description": "Identify principals holding replication rights (DCSync capability)",
+   "entry": "dcsync_check.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/dcsync-check"
+  },
+  {
+   "name": "delegation-hunter",
+   "category": "Active Directory",
+   "description": "Map unconstrained, constrained, and RBCD delegation across a domain",
+   "entry": "delegation_hunter.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/delegation-hunter"
+  },
+  {
+   "name": "gpo-hunter",
+   "category": "Active Directory",
+   "description": "Group Policy misconfiguration",
+   "entry": "gpo_hunter.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/gpo-hunter"
+  },
+  {
+   "name": "kerbroast",
+   "category": "Active Directory",
+   "description": "Kerberoasting",
+   "entry": "kerbroast.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/kerbroast"
+  },
+  {
+   "name": "lateral-trace",
+   "category": "Active Directory",
+   "description": "Lateral movement paths",
+   "entry": "lateral_trace.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/lateral-trace"
+  },
+  {
+   "name": "ldap-dump",
+   "category": "Active Directory",
+   "description": "LDAP extraction",
+   "entry": "ldap_dump.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/ldap-dump"
+  },
+  {
+   "name": "pass-spray",
+   "category": "Active Directory",
+   "description": "Rate-aware password spraying",
+   "entry": "pass_spray.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/pass-spray"
+  },
+  {
+   "name": "privesc-mapper",
+   "category": "Active Directory",
+   "description": "Privilege escalation paths",
+   "entry": "privesc_mapper.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/privesc-mapper"
+  },
+  {
+   "name": "shadow-cred",
+   "category": "Active Directory",
+   "description": "Audit msDS-KeyCredentialLink for Shadow Credentials exposure",
+   "entry": "shadow_cred.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/shadow-cred"
+  },
+  {
+   "name": "smb-audit",
+   "category": "Active Directory",
+   "description": "SMB share and signing review",
+   "entry": "smb_audit.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/smb-audit"
+  },
+  {
+   "name": "spn-scanner",
+   "category": "Active Directory",
+   "description": "Discover Service Principal Names and roastable service accounts",
+   "entry": "spn_scanner.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/spn-scanner"
+  },
+  {
+   "name": "ticket-forge",
+   "category": "Active Directory",
+   "description": "Kerberos ticket inspection and analysis helper for engagement notes",
+   "entry": "ticket_forge.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/ticket-forge"
+  },
+  {
+   "name": "trust-mapper",
+   "category": "Active Directory",
+   "description": "Enumerate domain and forest trust relationships and directions",
+   "entry": "trust_mapper.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/trust-mapper"
+  },
+  {
+   "name": "aws-bucket-brute",
+   "category": "Cloud & Container",
+   "description": "S3 bucket exposure",
+   "entry": "aws_bucket_brute.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/aws-bucket-brute"
+  },
+  {
+   "name": "aws-pivot",
+   "category": "Cloud & Container",
+   "description": "AWS role pivoting",
+   "entry": "aws_pivot.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/aws-pivot"
+  },
+  {
+   "name": "azure-enum",
+   "category": "Cloud & Container",
+   "description": "Azure enumeration",
+   "entry": "azure_enum.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/azure-enum"
+  },
+  {
+   "name": "Cloud-Storage-Artifacts",
+   "category": "Cloud & Container",
+   "description": "Cloud storage artefact collection",
+   "entry": "Cloud_Storage_Artifacts.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/Cloud-Storage-Artifacts"
+  },
+  {
+   "name": "gcp-probe",
+   "category": "Cloud & Container",
+   "description": "GCP enumeration",
+   "entry": "gcp_probe.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/gcp-probe"
+  },
+  {
+   "name": "k8s-audit",
+   "category": "Cloud & Container",
+   "description": "Kubernetes RBAC review",
+   "entry": "k8s_audit.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/k8s-audit"
+  },
+  {
+   "name": "lambda-abuse",
+   "category": "Cloud & Container",
+   "description": "Serverless privilege abuse",
+   "entry": "lambda_abuse.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/lambda-abuse"
+  },
+  {
+   "name": "browser-creds",
+   "category": "Credential Access",
+   "description": "Audit browser credential-store locations on an authorised host",
+   "entry": "browser_creds.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/browser-creds"
+  },
+  {
+   "name": "cred-vault",
+   "category": "Credential Access",
+   "description": "Enumerate Windows Credential Vault and stored-credential surfaces",
+   "entry": "cred_vault.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/cred-vault"
+  },
+  {
+   "name": "dpapi-decrypt",
+   "category": "Credential Access",
+   "description": "Analyse DPAPI blob structure for offline credential review",
+   "entry": "dpapi_decrypt.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/dpapi-decrypt"
+  },
+  {
+   "name": "hash-ident",
+   "category": "Credential Access",
+   "description": "Identify hash types and suggest appropriate cracking modes",
+   "entry": "hash_ident.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/hash-ident"
+  },
+  {
+   "name": "keepass-audit",
+   "category": "Credential Access",
+   "description": "Review KeePass database exposure and configuration weaknesses",
+   "entry": "keepass_audit.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/keepass-audit"
+  },
+  {
+   "name": "ntds-parse",
+   "category": "Credential Access",
+   "description": "Parse an exported NTDS.dit structure for hash-audit workflows",
+   "entry": "ntds_parse.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/ntds-parse"
+  },
+  {
+   "name": "http-headers-auditor",
+   "category": "Defensive & Research",
+   "description": "Security header posture",
+   "entry": "http_headers_auditor.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/http-headers-auditor"
+  },
+  {
+   "name": "MalwareFusionLightGBM",
+   "category": "Defensive & Research",
+   "description": "Cross-domain malware detection",
+   "entry": "MalwareFusionLightGBM.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/MalwareFusionLightGBM"
+  },
+  {
+   "name": "ProcSentinel",
+   "category": "Defensive & Research",
+   "description": "Memory forensics \u2014 masqueraded process detection",
+   "entry": "ProcSentinel.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/ProcSentinel"
+  },
+  {
+   "name": "amsi-check",
+   "category": "Evasion & OPSEC",
+   "description": "Check AMSI provider registration and integration status on a host",
+   "entry": "amsi_check.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/amsi-check"
+  },
+  {
+   "name": "artifact-tracker",
+   "category": "Evasion & OPSEC",
+   "description": "Log artefacts dropped during an engagement for clean-up",
+   "entry": "artifact_tracker.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/artifact-tracker"
+  },
+  {
+   "name": "entropy-check",
+   "category": "Evasion & OPSEC",
+   "description": "Measure file entropy to flag packed or encrypted artefacts",
+   "entry": "entropy_check.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/entropy-check"
+  },
+  {
+   "name": "opsec-lint",
+   "category": "Evasion & OPSEC",
+   "description": "Lint an engagement plan for common OPSEC mistakes",
+   "entry": "opsec_lint.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/opsec-lint"
+  },
+  {
+   "name": "script-obfuscator",
+   "category": "Evasion & OPSEC",
+   "description": "Reversible string transforms for authorised payload-handling tests",
+   "entry": "script_obfuscator.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/script-obfuscator"
+  },
+  {
+   "name": "sleep-mask",
+   "category": "Evasion & OPSEC",
+   "description": "Model beacon sleep and jitter timing for OPSEC planning",
+   "entry": "sleep_mask.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/sleep-mask"
+  },
+  {
+   "name": "cloud-exfil",
+   "category": "Exfiltration",
+   "description": "Model exfiltration paths to common cloud storage endpoints",
+   "entry": "cloud_exfil.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/cloud-exfil"
+  },
+  {
+   "name": "dns-exfil",
+   "category": "Exfiltration",
+   "description": "DNS-channel data-transfer proof-of-concept for detection testing",
+   "entry": "dns_exfil.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/dns-exfil"
+  },
+  {
+   "name": "http-tunnel",
+   "category": "Exfiltration",
+   "description": "HTTP(S) tunnelling PoC for proxy and egress-filter testing",
+   "entry": "http_tunnel.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/http-tunnel"
+  },
+  {
+   "name": "icmp-tunnel",
+   "category": "Exfiltration",
+   "description": "ICMP covert-channel PoC for egress-monitoring validation",
+   "entry": "icmp_tunnel.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/icmp-tunnel"
+  },
+  {
+   "name": "stego-exfil",
+   "category": "Exfiltration",
+   "description": "Embed and extract data in images to test DLP coverage",
+   "entry": "stego_exfil.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/stego-exfil"
+  },
+  {
+   "name": "dcom-exec",
+   "category": "Lateral Movement",
+   "description": "Enumerate DCOM lateral-movement objects on a target",
+   "entry": "dcom_exec.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/dcom-exec"
+  },
+  {
+   "name": "rdp-enum",
+   "category": "Lateral Movement",
+   "description": "RDP exposure, NLA, and security-layer enumeration",
+   "entry": "rdp_enum.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/rdp-enum"
+  },
+  {
+   "name": "smb-exec",
+   "category": "Lateral Movement",
+   "description": "SMB service-execution reachability check",
+   "entry": "smb_exec.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/smb-exec"
+  },
+  {
+   "name": "ssh-pivot",
+   "category": "Lateral Movement",
+   "description": "Plan and document SSH port-forward pivots for an engagement",
+   "entry": "ssh_pivot.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/ssh-pivot"
+  },
+  {
+   "name": "winrm-exec",
+   "category": "Lateral Movement",
+   "description": "WinRM/PSRemoting reachability and auth check",
+   "entry": "winrm_exec.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/winrm-exec"
+  },
+  {
+   "name": "wmi-exec",
+   "category": "Lateral Movement",
+   "description": "WMI remote-execution reachability check for authorised hosts",
+   "entry": "wmi_exec.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/wmi-exec"
+  },
+  {
+   "name": "hta-builder",
+   "category": "Payload / Initial Access",
+   "description": "HTA template scaffold for authorised initial-access testing",
+   "entry": "hta_builder.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/hta-builder"
+  },
+  {
+   "name": "iso-pack",
+   "category": "Payload / Initial Access",
+   "description": "Package payloads into ISO/container formats for delivery testing",
+   "entry": "iso_pack.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/iso-pack"
+  },
+  {
+   "name": "lnk-forge",
+   "category": "Payload / Initial Access",
+   "description": "Windows .lnk shortcut inspector and builder for red-team labs",
+   "entry": "lnk_forge.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/lnk-forge"
+  },
+  {
+   "name": "macro-gen",
+   "category": "Payload / Initial Access",
+   "description": "Office macro template generator for authorised phishing simulations",
+   "entry": "macro_gen.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/macro-gen"
+  },
+  {
+   "name": "phish-planner",
+   "category": "Payload / Initial Access",
+   "description": "Track and plan authorised phishing campaign pretexts and targets",
+   "entry": "phish_planner.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/phish-planner"
+  },
+  {
+   "name": "asn-mapper",
+   "category": "Recon & OSINT",
+   "description": "ASN to netblock to host mapping",
+   "entry": "asn_mapper.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/asn-mapper"
+  },
+  {
+   "name": "cert-recon",
+   "category": "Recon & OSINT",
+   "description": "Certificate transparency mining",
+   "entry": "cert_recon.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/cert-recon"
+  },
+  {
+   "name": "dns-recon",
+   "category": "Recon & OSINT",
+   "description": "DNS discovery",
+   "entry": "dns_recon.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/dns-recon"
+  },
+  {
+   "name": "email-harvest",
+   "category": "Recon & OSINT",
+   "description": "Email OSINT",
+   "entry": "email_harvest.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/email-harvest"
+  },
+  {
+   "name": "git-recon",
+   "category": "Recon & OSINT",
+   "description": "Exposed VCS discovery",
+   "entry": "git_recon.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/git-recon"
+  },
+  {
+   "name": "linkedin-recon",
+   "category": "Recon & OSINT",
+   "description": "LinkedIn OSINT",
+   "entry": "linkedin_recon.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/linkedin-recon"
+  },
+  {
+   "name": "meta-extract",
+   "category": "Recon & OSINT",
+   "description": "Document metadata extraction",
+   "entry": "meta_extract.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/meta-extract"
+  },
+  {
+   "name": "param-mine",
+   "category": "Recon & OSINT",
+   "description": "Hidden parameter discovery",
+   "entry": "param_mine.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/param-mine"
+  },
+  {
+   "name": "ReconPal",
+   "category": "Recon & OSINT",
+   "description": "Recon + config audit, with MCP deployment discovery",
+   "entry": "-m reconpal",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/ReconPal",
+   "module": true
+  },
+  {
+   "name": "snmp-walker",
+   "category": "Recon & OSINT",
+   "description": "SNMP enumeration",
+   "entry": "snmp_walker.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/snmp-walker"
+  },
+  {
+   "name": "stealth-scan",
+   "category": "Recon & OSINT",
+   "description": "Low-noise port scanning",
+   "entry": "stealth_scan.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/stealth-scan"
+  },
+  {
+   "name": "subdomain-storm",
+   "category": "Recon & OSINT",
+   "description": "Subdomain enumeration at speed",
+   "entry": "subdomain_storm.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/subdomain-storm"
+  },
+  {
+   "name": "vhost-scanner",
+   "category": "Recon & OSINT",
+   "description": "Virtual host discovery",
+   "entry": "vhost_scanner.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/vhost-scanner"
+  },
+  {
+   "name": "vpn-probe",
+   "category": "Recon & OSINT",
+   "description": "VPN endpoint fingerprinting",
+   "entry": "vpn_probe.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/vpn-probe"
+  },
+  {
+   "name": "c2-profile-gen",
+   "category": "Red Team",
+   "description": "Malleable C2 profiles",
+   "entry": "c2_profile_gen.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/c2-profile-gen"
+  },
+  {
+   "name": "dns-beacon",
+   "category": "Red Team",
+   "description": "DNS-channel beaconing",
+   "entry": "dns_beacon.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/dns-beacon"
+  },
+  {
+   "name": "edr-map",
+   "category": "Red Team",
+   "description": "Defensive-control mapping",
+   "entry": "edr_map.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/edr-map"
+  },
+  {
+   "name": "loot-harvest",
+   "category": "Red Team",
+   "description": "Loot collection",
+   "entry": "loot_harvest.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/loot-harvest"
+  },
+  {
+   "name": "persistence-kit",
+   "category": "Red Team",
+   "description": "Persistence mechanisms",
+   "entry": "persistence_kit.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/persistence-kit"
+  },
+  {
+   "name": "phantom-c2",
+   "category": "Red Team",
+   "description": "Lightweight HTTP/S C2",
+   "entry": "phantom_c2.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/phantom-c2"
+  },
+  {
+   "name": "process-inject",
+   "category": "Red Team",
+   "description": "Process injection",
+   "entry": "process_inject.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/process-inject"
+  },
+  {
+   "name": "redirector",
+   "category": "Red Team",
+   "description": "Traffic redirection",
+   "entry": "redirector.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/redirector"
+  },
+  {
+   "name": "Rev_Shell",
+   "category": "Red Team",
+   "description": "Reverse shell generator (11+ languages)",
+   "entry": "shell.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/Rev_Shell"
+  },
+  {
+   "name": "shellcode-gen",
+   "category": "Red Team",
+   "description": "Shellcode generation",
+   "entry": "shellcode_gen.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/shellcode-gen"
+  },
+  {
+   "name": "av-enum",
+   "category": "Situational Awareness",
+   "description": "Enumerate installed AV/EDR products and services on a host",
+   "entry": "av_enum.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/av-enum"
+  },
+  {
+   "name": "host-recon",
+   "category": "Situational Awareness",
+   "description": "Local host situational-awareness collector for post-exploitation",
+   "entry": "host_recon.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/host-recon"
+  },
+  {
+   "name": "token-hunter",
+   "category": "Situational Awareness",
+   "description": "Enumerate Windows access tokens available for impersonation review",
+   "entry": "token_hunter.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/token-hunter"
+  },
+  {
+   "name": "uac-audit",
+   "category": "Situational Awareness",
+   "description": "Audit UAC configuration and known bypass-prone settings",
+   "entry": "uac_audit.py",
+   "status": "scaffold",
+   "repo": "https://github.com/amooryx/uac-audit"
+  },
+  {
+   "name": "api-fuzz",
+   "category": "Web AppSec",
+   "description": "API fuzzing",
+   "entry": "api_fuzz.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/api-fuzz"
+  },
+  {
+   "name": "cache-probe",
+   "category": "Web AppSec",
+   "description": "Web cache poisoning",
+   "entry": "cache_probe.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/cache-probe"
+  },
+  {
+   "name": "cors-tester",
+   "category": "Web AppSec",
+   "description": "CORS misconfiguration",
+   "entry": "cors_tester.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/cors-tester"
+  },
+  {
+   "name": "graphql-attack-mapper",
+   "category": "Web AppSec",
+   "description": "GraphQL abuse",
+   "entry": "graphql_attack_mapper.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/graphql-attack-mapper"
+  },
+  {
+   "name": "host-injector",
+   "category": "Web AppSec",
+   "description": "Host header injection",
+   "entry": "host_injector.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/host-injector"
+  },
+  {
+   "name": "jwt-attack-suite",
+   "category": "Web AppSec",
+   "description": "JWT alg:none, confusion, weak HMAC, kid injection",
+   "entry": "jwt_attack_suite.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/jwt-attack-suite"
+  },
+  {
+   "name": "oauth-auditor",
+   "category": "Web AppSec",
+   "description": "OAuth / OIDC flow weaknesses",
+   "entry": "oauth_auditor.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/oauth-auditor"
+  },
+  {
+   "name": "open-redirect-scanner",
+   "category": "Web AppSec",
+   "description": "Open redirect chains",
+   "entry": "open_redirect_scanner.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/open-redirect-scanner"
+  },
+  {
+   "name": "path-traversal",
+   "category": "Web AppSec",
+   "description": "Path traversal",
+   "entry": "path_traversal.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/path-traversal"
+  },
+  {
+   "name": "proto-pollute",
+   "category": "Web AppSec",
+   "description": "Prototype pollution",
+   "entry": "proto_pollute.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/proto-pollute"
+  },
+  {
+   "name": "secret-scanner",
+   "category": "Web AppSec",
+   "description": "Credential exposure scanning",
+   "entry": "secret_scanner.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/secret-scanner"
+  },
+  {
+   "name": "smuggler",
+   "category": "Web AppSec",
+   "description": "HTTP request smuggling",
+   "entry": "smuggler.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/smuggler"
+  },
+  {
+   "name": "ssrf-scanner",
+   "category": "Web AppSec",
+   "description": "SSRF with IMDS and OOB testing",
+   "entry": "ssrf_scanner.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/ssrf-scanner"
+  },
+  {
+   "name": "ssti-hunter",
+   "category": "Web AppSec",
+   "description": "Template injection",
+   "entry": "ssti_hunter.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/ssti-hunter"
+  },
+  {
+   "name": "waf-bypass",
+   "category": "Web AppSec",
+   "description": "WAF filter evasion",
+   "entry": "waf_bypass.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/waf-bypass"
+  },
+  {
+   "name": "xxe-injector",
+   "category": "Web AppSec",
+   "description": "XML external entity injection",
+   "entry": "xxe_injector.py",
+   "status": "tool",
+   "repo": "https://github.com/amooryx/xxe-injector"
+  }
+ ]
+}

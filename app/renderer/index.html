@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self';">
+<title>RedCell</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-dark">
+  <div id="app">
+
+    <!-- sidebar -->
+    <nav id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">◆</div>
+        <div class="brand-text">
+          <div class="brand-name">RedCell</div>
+          <div class="brand-sub">command console</div>
+        </div>
+      </div>
+
+      <div class="nav-group">
+        <button class="nav-item active" data-view="dashboard"><span class="ni">⬡</span>Dashboard</button>
+        <button class="nav-item" data-view="arsenal"><span class="ni">⚔</span>Arsenal</button>
+        <button class="nav-item" data-view="runner"><span class="ni">▶</span>Runner</button>
+        <button class="nav-item" data-view="engagements"><span class="ni">◎</span>Engagements</button>
+        <button class="nav-item" data-view="settings"><span class="ni">⚙</span>Settings</button>
+      </div>
+
+      <div class="nav-spacer"></div>
+
+      <div class="eng-pill" id="engPill">
+        <div class="eng-pill-label">ACTIVE ENGAGEMENT</div>
+        <div class="eng-pill-name" id="engPillName">None</div>
+        <div class="eng-pill-scope" id="engPillScope">no scope set</div>
+      </div>
+
+      <button class="theme-toggle" id="themeToggle">◐ theme</button>
+    </nav>
+
+    <!-- main -->
+    <main id="main">
+      <header id="topbar">
+        <div id="crumb">Dashboard</div>
+        <div class="search-wrap">
+          <input id="globalSearch" type="search" placeholder="Search 100 tools…" autocomplete="off">
+        </div>
+      </header>
+
+      <section id="view" class="view"></section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
