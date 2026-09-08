@@ -1,29 +1,29 @@
 'use strict';
 
-// The only bridge between the renderer and Node. Everything the UI is allowed
-// to do is enumerated here; the renderer gets no direct fs, child_process, or
-// ipcRenderer access.
+// The only bridge between renderer and Node. Everything the UI can do is here.
 
 const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('redcell', {
   settings: {
     get: () => ipcRenderer.invoke('settings:get'),
-    set: (patch) => ipcRenderer.invoke('settings:set', patch),
+    set: (p) => ipcRenderer.invoke('settings:set', p),
     pickDir: () => ipcRenderer.invoke('settings:pickDir')
   },
-  catalog: {
-    get: () => ipcRenderer.invoke('catalog:get')
+  catalog: { get: () => ipcRenderer.invoke('catalog:get') },
+  store: {
+    get: () => ipcRenderer.invoke('store:get'),
+    save: (s) => ipcRenderer.invoke('store:save', s)
   },
-  engagements: {
-    get: () => ipcRenderer.invoke('eng:get'),
-    save: (state) => ipcRenderer.invoke('eng:save', state)
-  },
-  tool: {
-    run: (payload) => ipcRenderer.invoke('tool:run', payload),
-    stop: (runId) => ipcRenderer.invoke('tool:stop', runId),
+  log: (entry) => ipcRenderer.invoke('log', entry),
+  onActivity: (cb) => ipcRenderer.on('activity:new', (_e, d) => cb(d)),
+  tool: { command: (p) => ipcRenderer.invoke('tool:command', p) },
+  run: {
+    start: (p) => ipcRenderer.invoke('run:start', p),
+    stop: (id) => ipcRenderer.invoke('run:stop', id),
     onData: (cb) => ipcRenderer.on('run:data', (_e, d) => cb(d)),
     onEnd: (cb) => ipcRenderer.on('run:end', (_e, d) => cb(d))
   },
-  openExternal: (url) => ipcRenderer.invoke('open:external', url)
+  openExternal: (url) => ipcRenderer.invoke('open:external', url),
+  copy: (text) => ipcRenderer.invoke('clipboard:write', text)
 });

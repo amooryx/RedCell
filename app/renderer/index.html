@@ -9,22 +9,29 @@
 </head>
 <body class="theme-dark">
   <div id="app">
-
-    <!-- sidebar -->
     <nav id="sidebar">
       <div class="brand">
         <div class="brand-mark">◆</div>
         <div class="brand-text">
           <div class="brand-name">RedCell</div>
-          <div class="brand-sub">command console</div>
+          <div class="brand-sub">operations console</div>
         </div>
       </div>
 
+      <div class="nav-label">OPERATIONS</div>
       <div class="nav-group">
         <button class="nav-item active" data-view="dashboard"><span class="ni">⬡</span>Dashboard</button>
-        <button class="nav-item" data-view="arsenal"><span class="ni">⚔</span>Arsenal</button>
-        <button class="nav-item" data-view="runner"><span class="ni">▶</span>Runner</button>
+        <button class="nav-item" data-view="chains"><span class="ni">⛓</span>Attack Chains</button>
+        <button class="nav-item" data-view="c2"><span class="ni">📡</span>C2</button>
+        <button class="nav-item" data-view="phishing"><span class="ni">✉</span>Phishing</button>
+        <button class="nav-item" data-view="payloads"><span class="ni">◈</span>Payloads</button>
+      </div>
+
+      <div class="nav-label">WORKSPACE</div>
+      <div class="nav-group">
         <button class="nav-item" data-view="engagements"><span class="ni">◎</span>Engagements</button>
+        <button class="nav-item" data-view="activity"><span class="ni">≡</span>Activity Log</button>
+        <button class="nav-item" data-view="arsenal"><span class="ni">⚔</span>Arsenal <span class="pill-count">100</span></button>
         <button class="nav-item" data-view="settings"><span class="ni">⚙</span>Settings</button>
       </div>
 
@@ -35,23 +42,19 @@
         <div class="eng-pill-name" id="engPillName">None</div>
         <div class="eng-pill-scope" id="engPillScope">no scope set</div>
       </div>
-
       <button class="theme-toggle" id="themeToggle">◐ theme</button>
     </nav>
 
-    <!-- main -->
     <main id="main">
       <header id="topbar">
         <div id="crumb">Dashboard</div>
         <div class="search-wrap">
-          <input id="globalSearch" type="search" placeholder="Search 100 tools…" autocomplete="off">
+          <input id="globalSearch" type="search" placeholder="Search tools…" autocomplete="off">
         </div>
       </header>
-
       <section id="view" class="view"></section>
     </main>
   </div>
-
   <script src="app.js"></script>
 </body>
 </html>

@@ -21,7 +21,12 @@
    "description": "AD ACL and delegation abuse",
    "entry": "acl_abuser.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/acl-abuser"
+   "repo": "https://github.com/amooryx/acl-abuser",
+   "tactics": [
+    "discovery",
+    "credential-access",
+    "privilege-escalation"
+   ]
   },
   {
    "name": "ad-enum",
@@ -29,7 +34,12 @@
    "description": "AD domain enumeration",
    "entry": "ad_enum.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/ad-enum"
+   "repo": "https://github.com/amooryx/ad-enum",
+   "tactics": [
+    "discovery",
+    "credential-access",
+    "privilege-escalation"
+   ]
   },
   {
    "name": "adcs-audit",
@@ -37,7 +47,12 @@
    "description": "Review AD Certificate Services templates for known misconfiguration classes",
    "entry": "adcs_audit.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/adcs-audit"
+   "repo": "https://github.com/amooryx/adcs-audit",
+   "tactics": [
+    "discovery",
+    "credential-access",
+    "privilege-escalation"
+   ]
   },
   {
    "name": "asrep-roast",
@@ -45,7 +60,12 @@
    "description": "Enumerate accounts with Kerberos pre-auth disabled (AS-REP roasting candidates)",
    "entry": "asrep_roast.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/asrep-roast"
+   "repo": "https://github.com/amooryx/asrep-roast",
+   "tactics": [
+    "discovery",
+    "credential-access",
+    "privilege-escalation"
+   ]
   },
   {
    "name": "dc-checker",
@@ -53,7 +73,12 @@
    "description": "Domain controller posture",
    "entry": "dc_checker.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/dc-checker"
+   "repo": "https://github.com/amooryx/dc-checker",
+   "tactics": [
+    "discovery",
+    "credential-access",
+    "privilege-escalation"
+   ]
   },
   {
    "name": "dcsync-check",
@@ -61,7 +86,12 @@
    "description": "Identify principals holding replication rights (DCSync capability)",
    "entry": "dcsync_check.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/dcsync-check"
+   "repo": "https://github.com/amooryx/dcsync-check",
+   "tactics": [
+    "discovery",
+    "credential-access",
+    "privilege-escalation"
+   ]
   },
   {
    "name": "delegation-hunter",
@@ -69,7 +99,12 @@
    "description": "Map unconstrained, constrained, and RBCD delegation across a domain",
    "entry": "delegation_hunter.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/delegation-hunter"
+   "repo": "https://github.com/amooryx/delegation-hunter",
+   "tactics": [
+    "discovery",
+    "credential-access",
+    "privilege-escalation"
+   ]
   },
   {
    "name": "gpo-hunter",
@@ -77,7 +112,12 @@
    "description": "Group Policy misconfiguration",
    "entry": "gpo_hunter.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/gpo-hunter"
+   "repo": "https://github.com/amooryx/gpo-hunter",
+   "tactics": [
+    "discovery",
+    "credential-access",
+    "privilege-escalation"
+   ]
   },
   {
    "name": "kerbroast",
@@ -85,7 +125,12 @@
    "description": "Kerberoasting",
    "entry": "kerbroast.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/kerbroast"
+   "repo": "https://github.com/amooryx/kerbroast",
+   "tactics": [
+    "discovery",
+    "credential-access",
+    "privilege-escalation"
+   ]
   },
   {
    "name": "lateral-trace",
@@ -93,7 +138,12 @@
    "description": "Lateral movement paths",
    "entry": "lateral_trace.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/lateral-trace"
+   "repo": "https://github.com/amooryx/lateral-trace",
+   "tactics": [
+    "discovery",
+    "credential-access",
+    "privilege-escalation"
+   ]
   },
   {
    "name": "ldap-dump",
@@ -101,7 +151,12 @@
    "description": "LDAP extraction",
    "entry": "ldap_dump.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/ldap-dump"
+   "repo": "https://github.com/amooryx/ldap-dump",
+   "tactics": [
+    "discovery",
+    "credential-access",
+    "privilege-escalation"
+   ]
   },
   {
    "name": "pass-spray",
@@ -109,7 +164,12 @@
    "description": "Rate-aware password spraying",
    "entry": "pass_spray.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/pass-spray"
+   "repo": "https://github.com/amooryx/pass-spray",
+   "tactics": [
+    "discovery",
+    "credential-access",
+    "privilege-escalation"
+   ]
   },
   {
    "name": "privesc-mapper",
@@ -117,7 +177,12 @@
    "description": "Privilege escalation paths",
    "entry": "privesc_mapper.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/privesc-mapper"
+   "repo": "https://github.com/amooryx/privesc-mapper",
+   "tactics": [
+    "discovery",
+    "credential-access",
+    "privilege-escalation"
+   ]
   },
   {
    "name": "shadow-cred",
@@ -125,7 +190,12 @@
    "description": "Audit msDS-KeyCredentialLink for Shadow Credentials exposure",
    "entry": "shadow_cred.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/shadow-cred"
+   "repo": "https://github.com/amooryx/shadow-cred",
+   "tactics": [
+    "discovery",
+    "credential-access",
+    "privilege-escalation"
+   ]
   },
   {
    "name": "smb-audit",
@@ -133,7 +203,12 @@
    "description": "SMB share and signing review",
    "entry": "smb_audit.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/smb-audit"
+   "repo": "https://github.com/amooryx/smb-audit",
+   "tactics": [
+    "discovery",
+    "credential-access",
+    "privilege-escalation"
+   ]
   },
   {
    "name": "spn-scanner",
@@ -141,7 +216,12 @@
    "description": "Discover Service Principal Names and roastable service accounts",
    "entry": "spn_scanner.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/spn-scanner"
+   "repo": "https://github.com/amooryx/spn-scanner",
+   "tactics": [
+    "discovery",
+    "credential-access",
+    "privilege-escalation"
+   ]
   },
   {
    "name": "ticket-forge",
@@ -149,7 +229,12 @@
    "description": "Kerberos ticket inspection and analysis helper for engagement notes",
    "entry": "ticket_forge.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/ticket-forge"
+   "repo": "https://github.com/amooryx/ticket-forge",
+   "tactics": [
+    "discovery",
+    "credential-access",
+    "privilege-escalation"
+   ]
   },
   {
    "name": "trust-mapper",
@@ -157,7 +242,12 @@
    "description": "Enumerate domain and forest trust relationships and directions",
    "entry": "trust_mapper.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/trust-mapper"
+   "repo": "https://github.com/amooryx/trust-mapper",
+   "tactics": [
+    "discovery",
+    "credential-access",
+    "privilege-escalation"
+   ]
   },
   {
    "name": "aws-bucket-brute",
@@ -165,7 +255,11 @@
    "description": "S3 bucket exposure",
    "entry": "aws_bucket_brute.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/aws-bucket-brute"
+   "repo": "https://github.com/amooryx/aws-bucket-brute",
+   "tactics": [
+    "discovery",
+    "privilege-escalation"
+   ]
   },
   {
    "name": "aws-pivot",
@@ -173,7 +267,11 @@
    "description": "AWS role pivoting",
    "entry": "aws_pivot.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/aws-pivot"
+   "repo": "https://github.com/amooryx/aws-pivot",
+   "tactics": [
+    "discovery",
+    "privilege-escalation"
+   ]
   },
   {
    "name": "azure-enum",
@@ -181,7 +279,11 @@
    "description": "Azure enumeration",
    "entry": "azure_enum.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/azure-enum"
+   "repo": "https://github.com/amooryx/azure-enum",
+   "tactics": [
+    "discovery",
+    "privilege-escalation"
+   ]
   },
   {
    "name": "Cloud-Storage-Artifacts",
@@ -189,7 +291,11 @@
    "description": "Cloud storage artefact collection",
    "entry": "Cloud_Storage_Artifacts.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/Cloud-Storage-Artifacts"
+   "repo": "https://github.com/amooryx/Cloud-Storage-Artifacts",
+   "tactics": [
+    "discovery",
+    "privilege-escalation"
+   ]
   },
   {
    "name": "gcp-probe",
@@ -197,7 +303,11 @@
    "description": "GCP enumeration",
    "entry": "gcp_probe.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/gcp-probe"
+   "repo": "https://github.com/amooryx/gcp-probe",
+   "tactics": [
+    "discovery",
+    "privilege-escalation"
+   ]
   },
   {
    "name": "k8s-audit",
@@ -205,7 +315,11 @@
    "description": "Kubernetes RBAC review",
    "entry": "k8s_audit.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/k8s-audit"
+   "repo": "https://github.com/amooryx/k8s-audit",
+   "tactics": [
+    "discovery",
+    "privilege-escalation"
+   ]
   },
   {
    "name": "lambda-abuse",
@@ -213,7 +327,11 @@
    "description": "Serverless privilege abuse",
    "entry": "lambda_abuse.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/lambda-abuse"
+   "repo": "https://github.com/amooryx/lambda-abuse",
+   "tactics": [
+    "discovery",
+    "privilege-escalation"
+   ]
   },
   {
    "name": "browser-creds",
@@ -221,7 +339,10 @@
    "description": "Audit browser credential-store locations on an authorised host",
    "entry": "browser_creds.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/browser-creds"
+   "repo": "https://github.com/amooryx/browser-creds",
+   "tactics": [
+    "credential-access"
+   ]
   },
   {
    "name": "cred-vault",
@@ -229,7 +350,10 @@
    "description": "Enumerate Windows Credential Vault and stored-credential surfaces",
    "entry": "cred_vault.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/cred-vault"
+   "repo": "https://github.com/amooryx/cred-vault",
+   "tactics": [
+    "credential-access"
+   ]
   },
   {
    "name": "dpapi-decrypt",
@@ -237,7 +361,10 @@
    "description": "Analyse DPAPI blob structure for offline credential review",
    "entry": "dpapi_decrypt.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/dpapi-decrypt"
+   "repo": "https://github.com/amooryx/dpapi-decrypt",
+   "tactics": [
+    "credential-access"
+   ]
   },
   {
    "name": "hash-ident",
@@ -245,7 +372,10 @@
    "description": "Identify hash types and suggest appropriate cracking modes",
    "entry": "hash_ident.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/hash-ident"
+   "repo": "https://github.com/amooryx/hash-ident",
+   "tactics": [
+    "credential-access"
+   ]
   },
   {
    "name": "keepass-audit",
@@ -253,7 +383,10 @@
    "description": "Review KeePass database exposure and configuration weaknesses",
    "entry": "keepass_audit.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/keepass-audit"
+   "repo": "https://github.com/amooryx/keepass-audit",
+   "tactics": [
+    "credential-access"
+   ]
   },
   {
    "name": "ntds-parse",
@@ -261,7 +394,10 @@
    "description": "Parse an exported NTDS.dit structure for hash-audit workflows",
    "entry": "ntds_parse.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/ntds-parse"
+   "repo": "https://github.com/amooryx/ntds-parse",
+   "tactics": [
+    "credential-access"
+   ]
   },
   {
    "name": "http-headers-auditor",
@@ -269,7 +405,10 @@
    "description": "Security header posture",
    "entry": "http_headers_auditor.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/http-headers-auditor"
+   "repo": "https://github.com/amooryx/http-headers-auditor",
+   "tactics": [
+    "discovery"
+   ]
   },
   {
    "name": "MalwareFusionLightGBM",
@@ -277,7 +416,10 @@
    "description": "Cross-domain malware detection",
    "entry": "MalwareFusionLightGBM.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/MalwareFusionLightGBM"
+   "repo": "https://github.com/amooryx/MalwareFusionLightGBM",
+   "tactics": [
+    "discovery"
+   ]
   },
   {
    "name": "ProcSentinel",
@@ -285,7 +427,10 @@
    "description": "Memory forensics \u2014 masqueraded process detection",
    "entry": "ProcSentinel.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/ProcSentinel"
+   "repo": "https://github.com/amooryx/ProcSentinel",
+   "tactics": [
+    "discovery"
+   ]
   },
   {
    "name": "amsi-check",
@@ -293,7 +438,10 @@
    "description": "Check AMSI provider registration and integration status on a host",
    "entry": "amsi_check.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/amsi-check"
+   "repo": "https://github.com/amooryx/amsi-check",
+   "tactics": [
+    "defense-evasion"
+   ]
   },
   {
    "name": "artifact-tracker",
@@ -301,7 +449,10 @@
    "description": "Log artefacts dropped during an engagement for clean-up",
    "entry": "artifact_tracker.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/artifact-tracker"
+   "repo": "https://github.com/amooryx/artifact-tracker",
+   "tactics": [
+    "defense-evasion"
+   ]
   },
   {
    "name": "entropy-check",
@@ -309,7 +460,10 @@
    "description": "Measure file entropy to flag packed or encrypted artefacts",
    "entry": "entropy_check.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/entropy-check"
+   "repo": "https://github.com/amooryx/entropy-check",
+   "tactics": [
+    "defense-evasion"
+   ]
   },
   {
    "name": "opsec-lint",
@@ -317,7 +471,10 @@
    "description": "Lint an engagement plan for common OPSEC mistakes",
    "entry": "opsec_lint.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/opsec-lint"
+   "repo": "https://github.com/amooryx/opsec-lint",
+   "tactics": [
+    "defense-evasion"
+   ]
   },
   {
    "name": "script-obfuscator",
@@ -325,7 +482,10 @@
    "description": "Reversible string transforms for authorised payload-handling tests",
    "entry": "script_obfuscator.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/script-obfuscator"
+   "repo": "https://github.com/amooryx/script-obfuscator",
+   "tactics": [
+    "defense-evasion"
+   ]
   },
   {
    "name": "sleep-mask",
@@ -333,7 +493,10 @@
    "description": "Model beacon sleep and jitter timing for OPSEC planning",
    "entry": "sleep_mask.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/sleep-mask"
+   "repo": "https://github.com/amooryx/sleep-mask",
+   "tactics": [
+    "defense-evasion"
+   ]
   },
   {
    "name": "cloud-exfil",
@@ -341,7 +504,11 @@
    "description": "Model exfiltration paths to common cloud storage endpoints",
    "entry": "cloud_exfil.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/cloud-exfil"
+   "repo": "https://github.com/amooryx/cloud-exfil",
+   "tactics": [
+    "exfiltration",
+    "command-and-control"
+   ]
   },
   {
    "name": "dns-exfil",
@@ -349,7 +516,11 @@
    "description": "DNS-channel data-transfer proof-of-concept for detection testing",
    "entry": "dns_exfil.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/dns-exfil"
+   "repo": "https://github.com/amooryx/dns-exfil",
+   "tactics": [
+    "exfiltration",
+    "command-and-control"
+   ]
   },
   {
    "name": "http-tunnel",
@@ -357,7 +528,11 @@
    "description": "HTTP(S) tunnelling PoC for proxy and egress-filter testing",
    "entry": "http_tunnel.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/http-tunnel"
+   "repo": "https://github.com/amooryx/http-tunnel",
+   "tactics": [
+    "exfiltration",
+    "command-and-control"
+   ]
   },
   {
    "name": "icmp-tunnel",
@@ -365,7 +540,11 @@
    "description": "ICMP covert-channel PoC for egress-monitoring validation",
    "entry": "icmp_tunnel.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/icmp-tunnel"
+   "repo": "https://github.com/amooryx/icmp-tunnel",
+   "tactics": [
+    "exfiltration",
+    "command-and-control"
+   ]
   },
   {
    "name": "stego-exfil",
@@ -373,7 +552,11 @@
    "description": "Embed and extract data in images to test DLP coverage",
    "entry": "stego_exfil.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/stego-exfil"
+   "repo": "https://github.com/amooryx/stego-exfil",
+   "tactics": [
+    "exfiltration",
+    "command-and-control"
+   ]
   },
   {
    "name": "dcom-exec",
@@ -381,7 +564,10 @@
    "description": "Enumerate DCOM lateral-movement objects on a target",
    "entry": "dcom_exec.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/dcom-exec"
+   "repo": "https://github.com/amooryx/dcom-exec",
+   "tactics": [
+    "lateral-movement"
+   ]
   },
   {
    "name": "rdp-enum",
@@ -389,7 +575,10 @@
    "description": "RDP exposure, NLA, and security-layer enumeration",
    "entry": "rdp_enum.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/rdp-enum"
+   "repo": "https://github.com/amooryx/rdp-enum",
+   "tactics": [
+    "lateral-movement"
+   ]
   },
   {
    "name": "smb-exec",
@@ -397,7 +586,10 @@
    "description": "SMB service-execution reachability check",
    "entry": "smb_exec.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/smb-exec"
+   "repo": "https://github.com/amooryx/smb-exec",
+   "tactics": [
+    "lateral-movement"
+   ]
   },
   {
    "name": "ssh-pivot",
@@ -405,7 +597,10 @@
    "description": "Plan and document SSH port-forward pivots for an engagement",
    "entry": "ssh_pivot.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/ssh-pivot"
+   "repo": "https://github.com/amooryx/ssh-pivot",
+   "tactics": [
+    "lateral-movement"
+   ]
   },
   {
    "name": "winrm-exec",
@@ -413,7 +608,10 @@
    "description": "WinRM/PSRemoting reachability and auth check",
    "entry": "winrm_exec.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/winrm-exec"
+   "repo": "https://github.com/amooryx/winrm-exec",
+   "tactics": [
+    "lateral-movement"
+   ]
   },
   {
    "name": "wmi-exec",
@@ -421,7 +619,10 @@
    "description": "WMI remote-execution reachability check for authorised hosts",
    "entry": "wmi_exec.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/wmi-exec"
+   "repo": "https://github.com/amooryx/wmi-exec",
+   "tactics": [
+    "lateral-movement"
+   ]
   },
   {
    "name": "hta-builder",
@@ -429,7 +630,12 @@
    "description": "HTA template scaffold for authorised initial-access testing",
    "entry": "hta_builder.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/hta-builder"
+   "repo": "https://github.com/amooryx/hta-builder",
+   "tactics": [
+    "initial-access",
+    "execution",
+    "resource-development"
+   ]
   },
   {
    "name": "iso-pack",
@@ -437,7 +643,12 @@
    "description": "Package payloads into ISO/container formats for delivery testing",
    "entry": "iso_pack.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/iso-pack"
+   "repo": "https://github.com/amooryx/iso-pack",
+   "tactics": [
+    "initial-access",
+    "execution",
+    "resource-development"
+   ]
   },
   {
    "name": "lnk-forge",
@@ -445,7 +656,12 @@
    "description": "Windows .lnk shortcut inspector and builder for red-team labs",
    "entry": "lnk_forge.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/lnk-forge"
+   "repo": "https://github.com/amooryx/lnk-forge",
+   "tactics": [
+    "initial-access",
+    "execution",
+    "resource-development"
+   ]
   },
   {
    "name": "macro-gen",
@@ -453,7 +669,12 @@
    "description": "Office macro template generator for authorised phishing simulations",
    "entry": "macro_gen.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/macro-gen"
+   "repo": "https://github.com/amooryx/macro-gen",
+   "tactics": [
+    "initial-access",
+    "execution",
+    "resource-development"
+   ]
   },
   {
    "name": "phish-planner",
@@ -461,7 +682,12 @@
    "description": "Track and plan authorised phishing campaign pretexts and targets",
    "entry": "phish_planner.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/phish-planner"
+   "repo": "https://github.com/amooryx/phish-planner",
+   "tactics": [
+    "initial-access",
+    "execution",
+    "resource-development"
+   ]
   },
   {
    "name": "asn-mapper",
@@ -469,7 +695,10 @@
    "description": "ASN to netblock to host mapping",
    "entry": "asn_mapper.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/asn-mapper"
+   "repo": "https://github.com/amooryx/asn-mapper",
+   "tactics": [
+    "reconnaissance"
+   ]
   },
   {
    "name": "cert-recon",
@@ -477,7 +706,10 @@
    "description": "Certificate transparency mining",
    "entry": "cert_recon.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/cert-recon"
+   "repo": "https://github.com/amooryx/cert-recon",
+   "tactics": [
+    "reconnaissance"
+   ]
   },
   {
    "name": "dns-recon",
@@ -485,7 +717,10 @@
    "description": "DNS discovery",
    "entry": "dns_recon.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/dns-recon"
+   "repo": "https://github.com/amooryx/dns-recon",
+   "tactics": [
+    "reconnaissance"
+   ]
   },
   {
    "name": "email-harvest",
@@ -493,7 +728,10 @@
    "description": "Email OSINT",
    "entry": "email_harvest.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/email-harvest"
+   "repo": "https://github.com/amooryx/email-harvest",
+   "tactics": [
+    "reconnaissance"
+   ]
   },
   {
    "name": "git-recon",
@@ -501,7 +739,10 @@
    "description": "Exposed VCS discovery",
    "entry": "git_recon.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/git-recon"
+   "repo": "https://github.com/amooryx/git-recon",
+   "tactics": [
+    "reconnaissance"
+   ]
   },
   {
    "name": "linkedin-recon",
@@ -509,7 +750,10 @@
    "description": "LinkedIn OSINT",
    "entry": "linkedin_recon.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/linkedin-recon"
+   "repo": "https://github.com/amooryx/linkedin-recon",
+   "tactics": [
+    "reconnaissance"
+   ]
   },
   {
    "name": "meta-extract",
@@ -517,7 +761,10 @@
    "description": "Document metadata extraction",
    "entry": "meta_extract.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/meta-extract"
+   "repo": "https://github.com/amooryx/meta-extract",
+   "tactics": [
+    "reconnaissance"
+   ]
   },
   {
    "name": "param-mine",
@@ -525,7 +772,10 @@
    "description": "Hidden parameter discovery",
    "entry": "param_mine.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/param-mine"
+   "repo": "https://github.com/amooryx/param-mine",
+   "tactics": [
+    "reconnaissance"
+   ]
   },
   {
    "name": "ReconPal",
@@ -534,7 +784,10 @@
    "entry": "-m reconpal",
    "status": "tool",
    "repo": "https://github.com/amooryx/ReconPal",
-   "module": true
+   "module": true,
+   "tactics": [
+    "reconnaissance"
+   ]
   },
   {
    "name": "snmp-walker",
@@ -542,7 +795,10 @@
    "description": "SNMP enumeration",
    "entry": "snmp_walker.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/snmp-walker"
+   "repo": "https://github.com/amooryx/snmp-walker",
+   "tactics": [
+    "reconnaissance"
+   ]
   },
   {
    "name": "stealth-scan",
@@ -550,7 +806,10 @@
    "description": "Low-noise port scanning",
    "entry": "stealth_scan.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/stealth-scan"
+   "repo": "https://github.com/amooryx/stealth-scan",
+   "tactics": [
+    "reconnaissance"
+   ]
   },
   {
    "name": "subdomain-storm",
@@ -558,7 +817,10 @@
    "description": "Subdomain enumeration at speed",
    "entry": "subdomain_storm.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/subdomain-storm"
+   "repo": "https://github.com/amooryx/subdomain-storm",
+   "tactics": [
+    "reconnaissance"
+   ]
   },
   {
    "name": "vhost-scanner",
@@ -566,7 +828,10 @@
    "description": "Virtual host discovery",
    "entry": "vhost_scanner.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/vhost-scanner"
+   "repo": "https://github.com/amooryx/vhost-scanner",
+   "tactics": [
+    "reconnaissance"
+   ]
   },
   {
    "name": "vpn-probe",
@@ -574,7 +839,10 @@
    "description": "VPN endpoint fingerprinting",
    "entry": "vpn_probe.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/vpn-probe"
+   "repo": "https://github.com/amooryx/vpn-probe",
+   "tactics": [
+    "reconnaissance"
+   ]
   },
   {
    "name": "c2-profile-gen",
@@ -582,7 +850,12 @@
    "description": "Malleable C2 profiles",
    "entry": "c2_profile_gen.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/c2-profile-gen"
+   "repo": "https://github.com/amooryx/c2-profile-gen",
+   "tactics": [
+    "command-and-control",
+    "execution",
+    "persistence"
+   ]
   },
   {
    "name": "dns-beacon",
@@ -590,7 +863,12 @@
    "description": "DNS-channel beaconing",
    "entry": "dns_beacon.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/dns-beacon"
+   "repo": "https://github.com/amooryx/dns-beacon",
+   "tactics": [
+    "command-and-control",
+    "execution",
+    "persistence"
+   ]
   },
   {
    "name": "edr-map",
@@ -598,7 +876,12 @@
    "description": "Defensive-control mapping",
    "entry": "edr_map.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/edr-map"
+   "repo": "https://github.com/amooryx/edr-map",
+   "tactics": [
+    "command-and-control",
+    "execution",
+    "persistence"
+   ]
   },
   {
    "name": "loot-harvest",
@@ -606,7 +889,12 @@
    "description": "Loot collection",
    "entry": "loot_harvest.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/loot-harvest"
+   "repo": "https://github.com/amooryx/loot-harvest",
+   "tactics": [
+    "command-and-control",
+    "execution",
+    "persistence"
+   ]
   },
   {
    "name": "persistence-kit",
@@ -614,7 +902,12 @@
    "description": "Persistence mechanisms",
    "entry": "persistence_kit.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/persistence-kit"
+   "repo": "https://github.com/amooryx/persistence-kit",
+   "tactics": [
+    "command-and-control",
+    "execution",
+    "persistence"
+   ]
   },
   {
    "name": "phantom-c2",
@@ -622,7 +915,12 @@
    "description": "Lightweight HTTP/S C2",
    "entry": "phantom_c2.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/phantom-c2"
+   "repo": "https://github.com/amooryx/phantom-c2",
+   "tactics": [
+    "command-and-control",
+    "execution",
+    "persistence"
+   ]
   },
   {
    "name": "process-inject",
@@ -630,7 +928,12 @@
    "description": "Process injection",
    "entry": "process_inject.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/process-inject"
+   "repo": "https://github.com/amooryx/process-inject",
+   "tactics": [
+    "command-and-control",
+    "execution",
+    "persistence"
+   ]
   },
   {
    "name": "redirector",
@@ -638,7 +941,12 @@
    "description": "Traffic redirection",
    "entry": "redirector.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/redirector"
+   "repo": "https://github.com/amooryx/redirector",
+   "tactics": [
+    "command-and-control",
+    "execution",
+    "persistence"
+   ]
   },
   {
    "name": "Rev_Shell",
@@ -646,7 +954,12 @@
    "description": "Reverse shell generator (11+ languages)",
    "entry": "shell.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/Rev_Shell"
+   "repo": "https://github.com/amooryx/Rev_Shell",
+   "tactics": [
+    "command-and-control",
+    "execution",
+    "persistence"
+   ]
   },
   {
    "name": "shellcode-gen",
@@ -654,7 +967,12 @@
    "description": "Shellcode generation",
    "entry": "shellcode_gen.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/shellcode-gen"
+   "repo": "https://github.com/amooryx/shellcode-gen",
+   "tactics": [
+    "command-and-control",
+    "execution",
+    "persistence"
+   ]
   },
   {
    "name": "av-enum",
@@ -662,7 +980,10 @@
    "description": "Enumerate installed AV/EDR products and services on a host",
    "entry": "av_enum.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/av-enum"
+   "repo": "https://github.com/amooryx/av-enum",
+   "tactics": [
+    "discovery"
+   ]
   },
   {
    "name": "host-recon",
@@ -670,7 +991,10 @@
    "description": "Local host situational-awareness collector for post-exploitation",
    "entry": "host_recon.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/host-recon"
+   "repo": "https://github.com/amooryx/host-recon",
+   "tactics": [
+    "discovery"
+   ]
   },
   {
    "name": "token-hunter",
@@ -678,7 +1002,10 @@
    "description": "Enumerate Windows access tokens available for impersonation review",
    "entry": "token_hunter.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/token-hunter"
+   "repo": "https://github.com/amooryx/token-hunter",
+   "tactics": [
+    "discovery"
+   ]
   },
   {
    "name": "uac-audit",
@@ -686,7 +1013,10 @@
    "description": "Audit UAC configuration and known bypass-prone settings",
    "entry": "uac_audit.py",
    "status": "scaffold",
-   "repo": "https://github.com/amooryx/uac-audit"
+   "repo": "https://github.com/amooryx/uac-audit",
+   "tactics": [
+    "discovery"
+   ]
   },
   {
    "name": "api-fuzz",
@@ -694,7 +1024,11 @@
    "description": "API fuzzing",
    "entry": "api_fuzz.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/api-fuzz"
+   "repo": "https://github.com/amooryx/api-fuzz",
+   "tactics": [
+    "initial-access",
+    "execution"
+   ]
   },
   {
    "name": "cache-probe",
@@ -702,7 +1036,11 @@
    "description": "Web cache poisoning",
    "entry": "cache_probe.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/cache-probe"
+   "repo": "https://github.com/amooryx/cache-probe",
+   "tactics": [
+    "initial-access",
+    "execution"
+   ]
   },
   {
    "name": "cors-tester",
@@ -710,7 +1048,11 @@
    "description": "CORS misconfiguration",
    "entry": "cors_tester.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/cors-tester"
+   "repo": "https://github.com/amooryx/cors-tester",
+   "tactics": [
+    "initial-access",
+    "execution"
+   ]
   },
   {
    "name": "graphql-attack-mapper",
@@ -718,7 +1060,11 @@
    "description": "GraphQL abuse",
    "entry": "graphql_attack_mapper.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/graphql-attack-mapper"
+   "repo": "https://github.com/amooryx/graphql-attack-mapper",
+   "tactics": [
+    "initial-access",
+    "execution"
+   ]
   },
   {
    "name": "host-injector",
@@ -726,7 +1072,11 @@
    "description": "Host header injection",
    "entry": "host_injector.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/host-injector"
+   "repo": "https://github.com/amooryx/host-injector",
+   "tactics": [
+    "initial-access",
+    "execution"
+   ]
   },
   {
    "name": "jwt-attack-suite",
@@ -734,7 +1084,11 @@
    "description": "JWT alg:none, confusion, weak HMAC, kid injection",
    "entry": "jwt_attack_suite.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/jwt-attack-suite"
+   "repo": "https://github.com/amooryx/jwt-attack-suite",
+   "tactics": [
+    "initial-access",
+    "execution"
+   ]
   },
   {
    "name": "oauth-auditor",
@@ -742,7 +1096,11 @@
    "description": "OAuth / OIDC flow weaknesses",
    "entry": "oauth_auditor.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/oauth-auditor"
+   "repo": "https://github.com/amooryx/oauth-auditor",
+   "tactics": [
+    "initial-access",
+    "execution"
+   ]
   },
   {
    "name": "open-redirect-scanner",
@@ -750,7 +1108,11 @@
    "description": "Open redirect chains",
    "entry": "open_redirect_scanner.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/open-redirect-scanner"
+   "repo": "https://github.com/amooryx/open-redirect-scanner",
+   "tactics": [
+    "initial-access",
+    "execution"
+   ]
   },
   {
    "name": "path-traversal",
@@ -758,7 +1120,11 @@
    "description": "Path traversal",
    "entry": "path_traversal.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/path-traversal"
+   "repo": "https://github.com/amooryx/path-traversal",
+   "tactics": [
+    "initial-access",
+    "execution"
+   ]
   },
   {
    "name": "proto-pollute",
@@ -766,7 +1132,11 @@
    "description": "Prototype pollution",
    "entry": "proto_pollute.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/proto-pollute"
+   "repo": "https://github.com/amooryx/proto-pollute",
+   "tactics": [
+    "initial-access",
+    "execution"
+   ]
   },
   {
    "name": "secret-scanner",
@@ -774,7 +1144,11 @@
    "description": "Credential exposure scanning",
    "entry": "secret_scanner.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/secret-scanner"
+   "repo": "https://github.com/amooryx/secret-scanner",
+   "tactics": [
+    "initial-access",
+    "execution"
+   ]
   },
   {
    "name": "smuggler",
@@ -782,7 +1156,11 @@
    "description": "HTTP request smuggling",
    "entry": "smuggler.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/smuggler"
+   "repo": "https://github.com/amooryx/smuggler",
+   "tactics": [
+    "initial-access",
+    "execution"
+   ]
   },
   {
    "name": "ssrf-scanner",
@@ -790,7 +1168,11 @@
    "description": "SSRF with IMDS and OOB testing",
    "entry": "ssrf_scanner.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/ssrf-scanner"
+   "repo": "https://github.com/amooryx/ssrf-scanner",
+   "tactics": [
+    "initial-access",
+    "execution"
+   ]
   },
   {
    "name": "ssti-hunter",
@@ -798,7 +1180,11 @@
    "description": "Template injection",
    "entry": "ssti_hunter.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/ssti-hunter"
+   "repo": "https://github.com/amooryx/ssti-hunter",
+   "tactics": [
+    "initial-access",
+    "execution"
+   ]
   },
   {
    "name": "waf-bypass",
@@ -806,7 +1192,11 @@
    "description": "WAF filter evasion",
    "entry": "waf_bypass.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/waf-bypass"
+   "repo": "https://github.com/amooryx/waf-bypass",
+   "tactics": [
+    "initial-access",
+    "execution"
+   ]
   },
   {
    "name": "xxe-injector",
@@ -814,7 +1204,12 @@
    "description": "XML external entity injection",
    "entry": "xxe_injector.py",
    "status": "tool",
-   "repo": "https://github.com/amooryx/xxe-injector"
+   "repo": "https://github.com/amooryx/xxe-injector",
+   "tactics": [
+    "initial-access",
+    "execution"
+   ]
   }
- ]
+ ],
+ "schema": 2
 }

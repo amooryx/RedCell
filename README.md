@@ -2,8 +2,8 @@
 
 # ◆ RedCell
 
-**A unified command console for red-team tooling.**
-One desktop app. 100 tools. Engagement-scoped. Apple-clean.
+**A red-team operations console.**
+Attack chains · C2 · phishing · payloads — with 100 tools as the building blocks.
 
 ![platform](https://img.shields.io/badge/platform-Windows%20x64-05080d?style=for-the-badge&labelColor=b3121b)
 ![electron](https://img.shields.io/badge/Electron-33-05080d?style=for-the-badge&labelColor=1b7f3b)
@@ -15,40 +15,44 @@ One desktop app. 100 tools. Engagement-scoped. Apple-clean.
 
 ## What it is
 
-RedCell is a native Windows desktop app (a real `.exe`, not `python script.py`) that puts the
-whole [amooryx](https://github.com/amooryx) red-team arsenal behind one clean interface. Instead of
-remembering 100 command lines, you browse, search, scope, launch, and read output from a single
-console built for daily engagement work.
+RedCell is a native Windows desktop app (a real `.exe`, not `python script.py`) modelled on how real
+red-team platforms are shaped — Cobalt Strike, Sliver, Havoc, GoPhish. The **operations** come first:
+build attack chains, manage C2 listeners and sessions, run phishing campaigns, generate payloads. The
+[amooryx](https://github.com/amooryx) arsenal of 100 tools sits underneath as the building blocks your
+operations call on.
 
-It is a **launcher and workspace**, not a re-implementation: it drives the actual tool repos, so every
-tool stays independently versioned and auditable.
+Every operations module works **standalone** — you do not need the 100 tool repos cloned to plan
+chains, track C2 sessions, run phishing campaigns, or log activity. The tools are an optional
+integration layer that individual steps can call.
 
-> **Honesty note.** Of the 100 catalogued tools, **60 are working** and **40 are scaffolds** under
-> active development. RedCell labels each one — `working` or `scaffold` — so you always know what
-> you are about to run. Nothing here is dressed up as more finished than it is.
+> **Honesty note.** RedCell is an operator console, not a from-scratch C2 beacon or a live phishing
+> mailer. It **manages** listeners/sessions/campaigns and **drives your tools**; a live beacon callback
+> or real email delivery uses your own infrastructure, configured per module. And of the 100 tools,
+> **60 are working** and **40 are scaffolds** under development — each is labelled in the app. Nothing
+> is dressed up as more finished than it is.
 
-## Why it helps on a normal engagement day
+## The operations
 
-- **One surface.** Every tool, categorised and searchable, with favourites — no context-switching.
-- **Scope that bites.** Define an engagement's in-scope hosts once; RedCell refuses to launch a tool
-  at an out-of-scope target. Suffix confusion (`corp.com.evil.com`) is handled.
-- **Live output.** Tools spawn as child processes and stream `stdout`/`stderr` into the console in
-  real time; stop a run with one click.
-- **Engagement memory.** Targets, scope, and notes persist per engagement on disk.
-- **No lock-in.** Tools remain plain repos; RedCell just orchestrates them.
+| Module | What it does |
+|---|---|
+| **Attack Chains** | Compose a kill-chain as executable steps across MITRE ATT&CK tactics (Recon → Initial Access → C2 → Lateral → Exfil). Bind a tool + target to each step, then **run the whole chain in order** with live output; every step is logged with its ATT&CK tactic ID. Export as a checklist. |
+| **C2** | Manage listeners (HTTP/HTTPS/DNS/SMB/TCP) and track sessions. Start a listener (drives `phantom-c2`), copy its launch command, log sessions as beacons check in. |
+| **Phishing** | Plan campaigns with pretext + target lists and track the funnel — sent / opened / clicked / submitted. Generate lures via `macro-gen` / `hta-builder`. |
+| **Payloads** | One-click generation recipes through the arsenal — reverse shells, macros, HTA, LNK, shellcode, ISO packaging. |
 
-## Screens
+## Workspace
 
 | View | Purpose |
 |---|---|
-| **Dashboard** | Arsenal at a glance, active engagement, category breakdown |
-| **Arsenal** | All 100 tools — filter by category, search, favourite, one-click run |
-| **Runner** | Pick a tool, set target + args, execute, watch live output |
-| **Engagements** | Create engagements, define scope + targets, keep notes |
+| **Dashboard** | Operations at a glance + recent ATT&CK-tagged activity |
+| **Engagements** | Scope (enforced), targets, notes — the safety boundary all runs respect |
+| **Activity Log** | Timestamped, ATT&CK-tagged record of everything you ran |
+| **Arsenal** | All 100 tools — search, filter, favourite, run |
 | **Settings** | Python interpreter, tools directory, scope enforcement, theme |
 
-Light and dark themes; the whole thing follows an Apple/IBM-Carbon design language — one accent,
-real type scale, generous space.
+**Scope that bites.** Define an engagement's in-scope hosts once; RedCell refuses to launch anything at
+an out-of-scope target, and handles suffix confusion (`corp.com.evil.com`). Light and dark themes;
+Apple/IBM-Carbon design language throughout.
 
 ## Install
 

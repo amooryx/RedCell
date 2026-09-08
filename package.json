@@ -1,7 +1,7 @@
 {
   "name": "redcell",
   "productName": "RedCell",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "RedCell — a unified command console for red-team tooling. Authorised security testing only.",
   "author": "Omar Khalid Ali Mohamed Ahmed",
   "license": "MIT",

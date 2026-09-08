@@ -245,3 +245,67 @@ h2.section { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; 
 .mt { margin-top: 16px; }
 a.link { color: var(--accent); text-decoration: none; }
 a.link:hover { text-decoration: underline; }
+
+/* ============ v2 operations UI ============ */
+.nav-label { font-size: 9.5px; letter-spacing: .12em; color: var(--ink-3); padding: 14px 12px 6px; }
+.nav-group + .nav-label { margin-top: 4px; }
+.pill-count { margin-left: auto; font-size: 10px; background: var(--panel); color: var(--ink-3);
+  padding: 1px 7px; border-radius: 999px; }
+.nav-item { position: relative; }
+
+/* kanban / chain board */
+.board { display: grid; grid-auto-flow: column; grid-auto-columns: 260px; gap: 12px;
+  overflow-x: auto; padding-bottom: 12px; align-items: start; }
+.stage { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 10px; }
+.stage-head { display: flex; align-items: center; justify-content: space-between; padding: 4px 6px 10px; }
+.stage-name { font-size: 11px; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-2); font-weight: 600; }
+.stage-tac { font-size: 9.5px; color: var(--ink-3); font-family: var(--mono); }
+.step { background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--ink-3);
+  border-radius: var(--radius-sm); padding: 10px; margin-bottom: 8px; cursor: pointer; transition: border-color .14s; }
+.step:hover { border-color: var(--accent); }
+.step.done { border-left-color: #24c98c; }
+.step.run { border-left-color: #ffb300; }
+.step.fail { border-left-color: var(--accent); }
+.step-name { font-weight: 600; font-size: 13px; }
+.step-tool { font-family: var(--mono); font-size: 11px; color: var(--ink-3); margin-top: 3px; }
+.step-add { width: 100%; padding: 8px; border: 1px dashed var(--line); border-radius: var(--radius-sm);
+  background: transparent; color: var(--ink-3); cursor: pointer; font: inherit; font-size: 12px; }
+.step-add:hover { color: var(--accent); border-color: var(--accent); }
+
+/* table */
+table.data { width: 100%; border-collapse: collapse; background: var(--panel);
+  border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+table.data th, table.data td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--line); font-size: 13px; }
+table.data th { font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
+table.data tr:last-child td { border-bottom: 0; }
+table.data tr.click { cursor: pointer; }
+table.data tr.click:hover td { background: var(--panel-2); }
+.status-dot { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:7px; vertical-align:middle; }
+.s-active { background:#24c98c; } .s-idle { background: var(--ink-3); } .s-warn { background:#ffb300; } .s-dead { background: var(--accent); }
+
+.metric-row { display:flex; gap:22px; flex-wrap:wrap; margin: 6px 0 4px; }
+.metric { }
+.metric .m-num { font-size: 22px; font-weight: 700; }
+.metric .m-lbl { font-size: 11px; color: var(--ink-3); }
+
+.split { display:grid; grid-template-columns: 1fr 1fr; gap:16px; }
+@media (max-width: 1180px){ .split{ grid-template-columns:1fr; } }
+
+.tag { display:inline-block; font-family:var(--mono); font-size:10.5px; padding:2px 7px; border-radius:6px;
+  background: var(--accent-soft); color: var(--accent); }
+.tag.att { background: rgba(127,176,255,.14); color:#7fb0ff; }
+
+.head-row { display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+.head-row h2 { margin:0; font-size:18px; letter-spacing:-.01em; }
+.head-row .sub { color:var(--ink-3); font-size:12.5px; }
+
+.code-out { background:#06090f; border:1px solid var(--line); border-radius:var(--radius-sm);
+  font-family:var(--mono); font-size:12px; padding:12px 14px; color:#cfe3d0; white-space:pre-wrap;
+  word-break:break-word; max-height:200px; overflow:auto; }
+
+/* modal */
+.modal-back { position:fixed; inset:0; background:rgba(0,0,0,.5); display:grid; place-items:center; z-index:50; }
+.modal { background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
+  width:min(560px,92vw); max-height:88vh; overflow:auto; box-shadow:var(--shadow); padding:22px; }
+.modal h3 { margin:0 0 16px; font-size:16px; }
+.modal .row-btns { display:flex; gap:10px; justify-content:flex-end; margin-top:8px; }
