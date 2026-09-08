@@ -55,6 +55,7 @@ async function boot() {
   document.querySelectorAll('.nav-item').forEach(b => b.addEventListener('click', () => go(b.dataset.view)));
   $('#themeToggle').addEventListener('click', toggleTheme);
   $('#globalSearch').addEventListener('input', e => { state.search = e.target.value.toLowerCase(); if (state.view !== 'arsenal') go('arsenal'); else renderArsenal(); });
+  installDelegation();
   wireRun();
   renderEngPill();
   render();
@@ -71,6 +72,29 @@ function go(view) {
   $('#crumb').textContent = names[view];
   render();
 }
+// Event delegation replaces inline onclick (blocked by our strict CSP).
+// One click + one change listener on the document dispatch to window.app.
+function installDelegation() {
+  document.addEventListener('click', (e) => {
+    const el = e.target.closest('[data-act]');
+    if (!el) return;
+    const act = el.getAttribute('data-act');
+    if (el.getAttribute('data-stop')) e.stopPropagation();
+    let args = [];
+    const raw = el.getAttribute('data-args');
+    if (raw) { try { args = JSON.parse(raw); } catch { args = []; } }
+    const fn = window.app && window.app[act];
+    if (typeof fn === 'function') fn(...args);
+  });
+  document.addEventListener('change', (e) => {
+    const el = e.target.closest('[data-change]');
+    if (!el) return;
+    const act = el.getAttribute('data-change');
+    const fn = window.app && window.app[act];
+    if (typeof fn === 'function' && el.value) fn(el.getAttribute('data-a'), el.value);
+  });
+}
+
 function render() {
   ({ dashboard: renderDashboard, chains: renderChains, c2: renderC2, phishing: renderPhishing,
      payloads: renderPayloads, engagements: renderEngagements, activity: renderActivity,
@@ -108,12 +132,12 @@ function renderDashboard() {
             <div class="metric"><div class="m-num">${eng.targets.length}</div><div class="m-lbl">targets</div></div>
             <div class="metric"><div class="m-num">${s.chains.filter(c=>c.engagementId===eng.id).length}</div><div class="m-lbl">chains</div></div>
           </div>
-          <div class="row mt"><button class="btn small" onclick="app.go('engagements')">manage</button>
-            <button class="btn small primary" onclick="app.go('chains')">build a chain</button></div>`
-          : `<div class="empty">No active engagement. <a class="link" onclick="app.go('engagements')">Create one</a> to set scope.</div>`}
+          <div class="row mt"><button class="btn small" data-act="go" data-args='["engagements"]'>manage</button>
+            <button class="btn small primary" data-act="go" data-args='["chains"]'>build a chain</button></div>`
+          : `<div class="empty">No active engagement. <a class="link" data-act="go" data-args='["engagements"]'>Create one</a> to set scope.</div>`}
       </div>
       <div class="panel">
-        <div class="head-row"><h2>Recent activity</h2><div class="grow"></div><button class="btn small" onclick="app.go('activity')">all</button></div>
+        <div class="head-row"><h2>Recent activity</h2><div class="grow"></div><button class="btn small" data-act="go" data-args='["activity"]'>all</button></div>
         ${recent.length ? recent.map(a => `<div class="row" style="padding:7px 0;border-bottom:1px solid var(--line)">
             <span class="tag att">${esc(a.attack || a.kind || 'event')}</span>
             <span class="grow" style="font-size:13px">${esc(a.label || '')}</span>
@@ -135,9 +159,9 @@ function renderChains() {
       <select id="chainSel" class="btn" style="min-width:180px">
         ${chains.map(c => `<option value="${c.id}" ${c.id===state.activeChainId?'selected':''}>${esc(c.name)}</option>`).join('')}
       </select>
-      <button class="btn small" onclick="app.newChain()">+ new</button>
+      <button class="btn small" data-act="newChain">+ new</button>
     </div>
-    ${chain ? chainBoard(chain) : `<div class="empty">No chains yet. <a class="link" onclick="app.newChain()">Create your first chain.</a><br><br>
+    ${chain ? chainBoard(chain) : `<div class="empty">No chains yet. <a class="link" data-act="newChain">Create your first chain.</a><br><br>
       A chain is your engagement plan as executable steps: pick a tactic (Recon → Initial Access → C2 → Lateral → Exfil…),
       attach a tool and target, then run the whole sequence with output and ATT&CK logging.</div>`}`;
   if (chain) $('#chainSel').addEventListener('change', e => { state.activeChainId = e.target.value; renderChains(); });
@@ -148,22 +172,22 @@ function chainBoard(chain) {
   const stages = order.length ? order : ['reconnaissance'];
   return `
     <div class="row" style="margin-bottom:14px">
-      <button class="btn primary" onclick="app.runChain('${chain.id}')" id="runChainBtn">▶ Run chain (${chain.steps.length} steps)</button>
-      <button class="btn" onclick="app.addStep('${chain.id}')">+ add step</button>
-      <button class="btn ghost" onclick="app.exportChain('${chain.id}')">copy as checklist</button>
+      <button class="btn primary" data-act="runChain" data-args='["${chain.id}"]' id="runChainBtn">▶ Run chain (${chain.steps.length} steps)</button>
+      <button class="btn" data-act="addStep" data-args='["${chain.id}"]'>+ add step</button>
+      <button class="btn ghost" data-act="exportChain" data-args='["${chain.id}"]'>copy as checklist</button>
       <div class="grow"></div>
-      <button class="btn ghost small" onclick="app.deleteChain('${chain.id}')">delete chain</button>
+      <button class="btn ghost small" data-act="deleteChain" data-args='["${chain.id}"]'>delete chain</button>
     </div>
     <div class="board">
       ${stages.map(tac => `
         <div class="stage">
           <div class="stage-head"><span class="stage-name">${esc(TAC_LABEL[tac]||tac)}</span><span class="stage-tac">${esc(TAC_ID[tac]||'')}</span></div>
           ${chain.steps.filter(s => s.tactic === tac).map(s => stepCard(chain, s)).join('')}
-          <button class="step-add" onclick="app.addStep('${chain.id}','${tac}')">+ step</button>
+          <button class="step-add" data-act="addStep" data-args='["${chain.id}","${tac}"]'>+ step</button>
         </div>`).join('')}
       <div class="stage" style="border-style:dashed">
         <div class="stage-head"><span class="stage-name" style="color:var(--ink-3)">+ add stage</span></div>
-        <select class="btn" style="width:100%" onchange="if(this.value)app.addStep('${chain.id}',this.value)">
+        <select class="btn" style="width:100%" data-change="addStep" data-a="${chain.id}">
           <option value="">choose tactic…</option>
           ${TACTICS.filter(t=>!used.includes(t[0])).map(t=>`<option value="${t[0]}">${t[1]}</option>`).join('')}
         </select>
@@ -172,7 +196,7 @@ function chainBoard(chain) {
     <div id="chainConsole" class="code-out mt" style="max-height:220px">chain console — run the chain to stream tool output here.</div>`;
 }
 function stepCard(chain, s) {
-  return `<div class="step ${s.status||''}" onclick="app.editStep('${chain.id}','${s.id}')">
+  return `<div class="step ${s.status||''}" data-act="editStep" data-args='["${chain.id}","${s.id}"]'>
     <div class="step-name">${esc(s.name || (s.tool || 'step'))}</div>
     <div class="step-tool">${s.tool ? '⚔ '+esc(s.tool) : '☐ manual'} ${s.target ? '· '+esc(s.target) : ''}</div>
   </div>`;
@@ -184,7 +208,7 @@ function renderC2() {
   $('#view').innerHTML = `
     <div class="head-row"><h2>Command &amp; Control</h2>
       <div class="sub">manage listeners and track sessions · integrates phantom-c2, redirector, dns-beacon</div>
-      <div class="grow"></div><button class="btn small primary" onclick="app.newListener()">+ listener</button></div>
+      <div class="grow"></div><button class="btn small primary" data-act="newListener">+ listener</button></div>
 
     <div class="panel" style="margin-bottom:16px">
       <h2 class="section">Listeners</h2>
@@ -194,9 +218,9 @@ function renderC2() {
           <td class="mono">${esc(l.host)}:${esc(l.port)}</td><td>${esc(l.profile||'default')}</td>
           <td><span class="status-dot ${l.status==='running'?'s-active':'s-idle'}"></span>${esc(l.status)}</td>
           <td class="row">
-            <button class="btn small" onclick="app.toggleListener('${l.id}')">${l.status==='running'?'stop':'start'}</button>
-            <button class="btn small ghost" onclick="app.copyListenerCmd('${l.id}')">copy cmd</button>
-            <button class="btn small ghost" onclick="app.delListener('${l.id}')">✕</button>
+            <button class="btn small" data-act="toggleListener" data-args='["${l.id}"]'>${l.status==='running'?'stop':'start'}</button>
+            <button class="btn small ghost" data-act="copyListenerCmd" data-args='["${l.id}"]'>copy cmd</button>
+            <button class="btn small ghost" data-act="delListener" data-args='["${l.id}"]'>✕</button>
           </td></tr>`).join('')}
       </tbody></table>` : `<div class="empty">No listeners. A listener is a channel a beacon calls back to (HTTP/DNS/SMB).</div>`}
     </div>
@@ -208,12 +232,12 @@ function renderC2() {
           <td class="mono">${esc(i.id.slice(0,8))}</td><td>${esc(i.host)}</td><td>${esc(i.user)}</td>
           <td>${esc((c2.listeners.find(l=>l.id===i.listenerId)||{}).name || '—')}</td>
           <td style="font-size:12px;color:var(--ink-3)">${fmt(i.lastSeen)}</td>
-          <td><button class="btn small ghost" onclick="app.delImplant('${i.id}')">✕</button></td></tr>`).join('')}
+          <td><button class="btn small ghost" data-act="delImplant" data-args='["${i.id}"]'>✕</button></td></tr>`).join('')}
       </tbody></table>`
       : `<div class="empty">No live sessions. RedCell tracks sessions here; a real beacon callback requires your own
          implant and the listener running. Use <b>+ session (manual)</b> to log one during an engagement.
-         <br><br><button class="btn small" onclick="app.newImplant()">+ session (manual)</button></div>`}
-      ${c2.implants.length ? `<div class="mt"><button class="btn small" onclick="app.newImplant()">+ session (manual)</button></div>` : ''}
+         <br><br><button class="btn small" data-act="newImplant">+ session (manual)</button></div>`}
+      ${c2.implants.length ? `<div class="mt"><button class="btn small" data-act="newImplant">+ session (manual)</button></div>` : ''}
     </div>`;
 }
 
@@ -223,7 +247,7 @@ function renderPhishing() {
   $('#view').innerHTML = `
     <div class="head-row"><h2>Phishing</h2>
       <div class="sub">plan campaigns and track engagement · integrates phish-planner, macro-gen, hta-builder</div>
-      <div class="grow"></div><button class="btn small primary" onclick="app.newCampaign()">+ campaign</button></div>
+      <div class="grow"></div><button class="btn small primary" data-act="newCampaign">+ campaign</button></div>
     ${camps.length ? camps.map(campCard).join('') : `<div class="empty">No campaigns yet.
       A campaign holds your pretext, targets, and tracking (sent / opened / clicked / submitted). Delivery uses your
       own SMTP or an Evilginx/GoPhish-style setup; RedCell manages the campaign and generates the payloads.</div>`}`;
@@ -233,8 +257,8 @@ function campCard(c) {
   return `<div class="panel" style="margin-bottom:14px">
     <div class="head-row"><h2 style="font-size:16px">${esc(c.name)}</h2>
       <span class="tag">${esc(c.status)}</span><div class="grow"></div>
-      <button class="btn small" onclick="app.editCampaign('${c.id}')">edit</button>
-      <button class="btn small ghost" onclick="app.delCampaign('${c.id}')">✕</button></div>
+      <button class="btn small" data-act="editCampaign" data-args='["${c.id}"]'>edit</button>
+      <button class="btn small ghost" data-act="delCampaign" data-args='["${c.id}"]'>✕</button></div>
     <div style="color:var(--ink-2);font-size:13px;margin-bottom:12px">${esc(c.pretext||'no pretext set')}</div>
     <div class="metric-row">
       <div class="metric"><div class="m-num">${c.targets.length}</div><div class="m-lbl">targets</div></div>
@@ -266,7 +290,7 @@ function renderPayloads() {
             <span class="badge ${st}">${st==='tool'?'working':'scaffold'}</span></div>
           <div class="tc-cat">${esc(r.tool)}</div>
           <div class="tc-desc">${esc(r.hint)}</div>
-          <div class="tc-actions"><button class="btn primary small" onclick="app.launch('${esc(r.tool)}')">▶ Generate</button></div>
+          <div class="tc-actions"><button class="btn primary small" data-act="launch" data-args='["${esc(r.tool)}"]'>▶ Generate</button></div>
         </div>`; }).join('')}
     </div>`;
 }
@@ -276,17 +300,17 @@ function renderEngagements() {
   const s = state.store;
   $('#view').innerHTML = `
     <div class="head-row"><h2>Engagements</h2><div class="grow"></div>
-      <button class="btn small primary" onclick="app.newEngagement()">+ new</button></div>
+      <button class="btn small primary" data-act="newEngagement">+ new</button></div>
     ${s.engagements.length ? `<div class="eng-list">${s.engagements.map(engRow).join('')}</div>`
       : `<div class="empty">No engagements. Create one to define scope, targets, and notes.</div>`}
     <div id="engEditor"></div>`;
 }
 function engRow(e) {
   const active = e.id === state.store.activeId;
-  return `<div class="eng-row ${active?'active':''}" onclick="app.editEngagement('${e.id}')">
+  return `<div class="eng-row ${active?'active':''}" data-act="editEngagement" data-args='["${e.id}"]'>
     <div><div class="er-name">${esc(e.name)} ${active?'<span class="badge tool">active</span>':''}</div>
       <div class="er-meta">${e.scope.length} scope · ${e.targets.length} targets</div></div>
-    <button class="btn small" onclick="event.stopPropagation();app.activate('${e.id}')">${active?'active':'set active'}</button></div>`;
+    <button class="btn small" data-act="activate" data-args='["${e.id}"]' data-stop="1">${active?'active':'set active'}</button></div>`;
 }
 function editEngagement(id) {
   const e = state.store.engagements.find(x => x.id === id); if (!e) return;
@@ -297,16 +321,16 @@ function editEngagement(id) {
       <textarea id="eScope" rows="4">${esc(e.scope.join('\n'))}</textarea></div>
     <div class="field"><label>Targets</label><textarea id="eTargets" rows="4">${esc(e.targets.join('\n'))}</textarea></div>
     <div class="field"><label>Notes</label><textarea id="eNotes" rows="5">${esc(e.notes||'')}</textarea></div>
-    <div class="row"><button class="btn primary" onclick="app.saveEngagement('${e.id}')">Save</button>
-      <button class="btn ghost" onclick="app.activate('${e.id}')">Set active</button>
-      <div class="grow"></div><button class="btn ghost" onclick="app.deleteEngagement('${e.id}')">Delete</button></div></div>`;
+    <div class="row"><button class="btn primary" data-act="saveEngagement" data-args='["${e.id}"]'>Save</button>
+      <button class="btn ghost" data-act="activate" data-args='["${e.id}"]'>Set active</button>
+      <div class="grow"></div><button class="btn ghost" data-act="deleteEngagement" data-args='["${e.id}"]'>Delete</button></div></div>`;
 }
 
 // ---------- activity ----------
 function renderActivity() {
   const a = state.store.activity;
   $('#view').innerHTML = `<div class="head-row"><h2>Activity Log</h2><div class="sub">timestamped, ATT&CK-tagged</div>
-    <div class="grow"></div><button class="btn small ghost" onclick="app.clearActivity()">clear</button></div>
+    <div class="grow"></div><button class="btn small ghost" data-act="clearActivity">clear</button></div>
     ${a.length ? `<table class="data"><thead><tr><th>Time</th><th>Tactic</th><th>Event</th><th>Target</th></tr></thead><tbody>
       ${a.map(x => `<tr><td style="font-size:12px;color:var(--ink-3)">${fmt(x.ts)}</td>
         <td>${x.attack?`<span class="tag att">${esc(x.attack)}</span>`:`<span class="tag">${esc(x.kind||'')}</span>`}</td>
@@ -325,17 +349,17 @@ function renderArsenal() {
   });
   $('#view').innerHTML = `
     <div class="head-row"><h2>Arsenal</h2><div class="sub">100 tools · the building blocks your operations call on</div></div>
-    <div class="filters">${cats.map(c => `<button class="chip ${state.filter===c?'active':''}" onclick="app.setFilter('${esc(c)}')">${esc(c)}</button>`).join('')}</div>
+    <div class="filters">${cats.map(c => `<button class="chip ${state.filter===c?'active':''}" data-act="setFilter" data-args='["${esc(c)}"]'>${esc(c)}</button>`).join('')}</div>
     <div class="tool-grid">${list.length ? list.map(toolCard).join('') : `<div class="empty">No tools match.</div>`}</div>`;
 }
 function toolCard(t) {
   const fav = state.favorites.includes(t.name);
   return `<div class="tool-card"><div class="tc-head"><div class="tc-name">${esc(t.name)}</div>
     <div class="tc-badges"><span class="badge ${t.status}">${t.status==='tool'?'working':'scaffold'}</span>
-      <span class="star ${fav?'on':''}" onclick="app.toggleFav('${esc(t.name)}')">${fav?'★':'☆'}</span></div></div>
+      <span class="star ${fav?'on':''}" data-act="toggleFav" data-args='["${esc(t.name)}"]'>${fav?'★':'☆'}</span></div></div>
     <div class="tc-cat">${esc(t.category)}</div><div class="tc-desc">${esc(t.description)}</div>
-    <div class="tc-actions"><button class="btn primary small" onclick="app.launch('${esc(t.name)}')">▶ Run</button>
-      <button class="btn ghost small" onclick="app.openRepo('${esc(t.repo)}')">repo ↗</button></div></div>`;
+    <div class="tc-actions"><button class="btn primary small" data-act="launch" data-args='["${esc(t.name)}"]'>▶ Run</button>
+      <button class="btn ghost small" data-act="openRepo" data-args='["${esc(t.repo)}"]'>repo ↗</button></div></div>`;
 }
 
 // ---------- settings ----------
@@ -347,10 +371,10 @@ function renderSettings() {
     <div class="field"><label>Python interpreter</label><input id="sPy" value="${esc(s.pythonPath||'')}">
       <div class="hint">Used to launch Python tools (e.g. <code>python</code>, <code>py -3</code>, venv path).</div></div>
     <div class="field"><label>Tools directory</label>
-      <div class="row"><input id="sDir" class="grow" value="${esc(s.toolsDir||'')}"><button class="btn small" onclick="app.pickDir()">browse…</button></div>
+      <div class="row"><input id="sDir" class="grow" value="${esc(s.toolsDir||'')}"><button class="btn small" data-act="pickDir">browse…</button></div>
       <div class="hint">Where tool repos are cloned: <code>&lt;dir&gt;/&lt;tool&gt;/</code>. RedCell's own modules work without this.</div></div>
     <div class="field"><label class="row"><input type="checkbox" id="sScope" ${s.confirmOutOfScope?'checked':''} style="width:auto"> &nbsp;Block launches against out-of-scope targets</label></div>
-    <button class="btn primary" onclick="app.saveSettings()">Save</button>
+    <button class="btn primary" data-act="saveSettings">Save</button>
     <div class="hint mt">Clone every tool at once (PowerShell):</div>
     <div class="code-out mt">gh repo list amooryx --limit 200 --json name -q '.[].name' | %% { gh repo clone amooryx/$_ "${esc(s.toolsDir||'TOOLS')}/$_" }</div>
   </div>`;
@@ -455,7 +479,7 @@ window.app = {
       <div class="field"><label>Extra args</label><input id="pArgs" value="${esc(s.args||'')}"></div>
       <div class="field"><label>Status</label><select id="pStatus">
         ${['', 'done', 'fail'].map(v=>`<option value="${v}" ${v===s.status?'selected':''}>${v||'pending'}</option>`).join('')}</select></div>
-      <div class="row"><button class="btn ghost small" onclick="app.delStep('${chainId}','${stepId}')">delete step</button></div>`, (b) => {
+      <div class="row"><button class="btn ghost small" data-act="delStep" data-args='["${chainId}","${stepId}"]'>delete step</button></div>`, (b) => {
         s.name = b.querySelector('#pName').value.trim(); s.tool = b.querySelector('#pTool').value || null;
         s.target = b.querySelector('#pTarget').value.trim(); s.args = b.querySelector('#pArgs').value.trim();
         s.status = b.querySelector('#pStatus').value; persist().then(renderChains);
