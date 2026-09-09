@@ -1,40 +1,55 @@
-/* RedCell — visual system.
-   Restraint over decoration: one accent, a real type scale, generous space.
-   IBM Carbon's density where data lives; Apple's calm everywhere else. */
+/* RedCell — CrowdStrike Falcon-inspired system.
+   Tokens adapted from CrowdStrike/falcon-styles (open source): pure-black SOC
+   canvas, blue primary, red/orange/amber severity. Dense, professional. */
 
 :root {
-  --accent: #ff4d4d;
-  --accent-soft: rgba(255, 77, 77, 0.12);
-  --radius: 12px;
-  --radius-sm: 8px;
-  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", Roboto, sans-serif;
+  --radius: 8px;
+  --radius-sm: 6px;
+  --font: "Inter var", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
   --ease: cubic-bezier(.2, .7, .2, 1);
+
+  /* brand + interactive */
+  --accent: #567ff9;          /* falcon focus/primary blue */
+  --accent-2: #8cb0fd;
+  --accent-soft: rgba(86, 127, 249, 0.14);
+  --success: #34d79e;
+
+  /* severity (falcon) */
+  --sev-critical: #ef3e40;
+  --sev-high: #f6753d;
+  --sev-medium: #f3c238;
+  --sev-low: #b7f2ca;
+  --sev-info: #8cb0fd;
 }
 
-/* dark (default) */
+/* dark = Falcon default: pure black, layered graphite */
 .theme-dark {
-  --bg: #0b0e14;
-  --bg-2: #10151f;
-  --panel: #131a26;
-  --panel-2: #182231;
-  --line: #223047;
-  --ink: #eef2f8;
-  --ink-2: #9fb0c7;
-  --ink-3: #64748b;
-  --shadow: 0 8px 30px rgba(0, 0, 0, .35);
+  --bg: #000000;
+  --bg-2: #0a0a0c;
+  --panel: #161618;
+  --panel-2: #1d1c20;
+  --panel-3: #2c2c30;
+  --line: #2c2c30;
+  --line-2: #3b3a40;
+  --ink: #f7f7f8;
+  --ink-2: #b8b7bd;
+  --ink-3: #75737d;
+  --shadow: 0 12px 40px rgba(0, 0, 0, .55);
 }
 /* light */
 .theme-light {
-  --bg: #f5f6f8;
-  --bg-2: #eceef2;
+  --bg: #f4f5f7;
+  --bg-2: #eceef1;
   --panel: #ffffff;
-  --panel-2: #f7f8fa;
-  --line: #e3e7ee;
-  --ink: #0f1826;
-  --ink-2: #4a5568;
-  --ink-3: #8a97a8;
-  --shadow: 0 8px 30px rgba(20, 30, 50, .08);
+  --panel-2: #f7f7f8;
+  --panel-3: #eceef1;
+  --line: #e3e5ea;
+  --line-2: #d3d6dd;
+  --ink: #161618;
+  --ink-2: #47464d;
+  --ink-3: #8a8992;
+  --shadow: 0 12px 40px rgba(20, 24, 36, .10);
 }
 
 * { box-sizing: border-box; }
@@ -309,3 +324,64 @@ table.data tr.click:hover td { background: var(--panel-2); }
   width:min(560px,92vw); max-height:88vh; overflow:auto; box-shadow:var(--shadow); padding:22px; }
 .modal h3 { margin:0 0 16px; font-size:16px; }
 .modal .row-btns { display:flex; gap:10px; justify-content:flex-end; margin-top:8px; }
+
+/* ============ Falcon look refinements (v3) ============ */
+body { font-size: 13px; }
+#app { grid-template-columns: 216px 1fr; }
+#sidebar { background: #000; padding: 14px 10px; }
+.brand-mark { border-radius: 7px; background: linear-gradient(135deg, var(--accent), #2b4fd6);
+  box-shadow: 0 4px 14px rgba(86,127,249,.4); }
+.nav-item { padding: 8px 11px; font-size: 13px; border-radius: 6px; }
+.nav-item.active { background: var(--accent-soft); box-shadow: inset 2px 0 0 var(--accent); }
+.nav-item.active .ni { color: var(--accent-2); }
+.pill-count { background: var(--panel-2); }
+.nav-label { padding: 13px 11px 5px; }
+
+#topbar { height: 54px; flex-basis: 54px; background: #000; border-color: var(--line); }
+#crumb { font-weight: 600; font-size: 14px; }
+#globalSearch { background: var(--panel); border-radius: 6px; }
+
+/* tighter, SOC-grade tiles */
+.tiles { gap: 10px; }
+.tile { padding: 15px 16px; border-radius: var(--radius); }
+.tile:hover { border-color: var(--line-2); transform: none; box-shadow: 0 0 0 1px var(--line-2); }
+.tile .t-num { font-size: 27px; }
+.tile .t-accent { color: var(--accent-2); }
+
+.panel { border-radius: var(--radius); }
+.btn { border-radius: 6px; }
+.btn.primary { background: var(--accent); border-color: var(--accent); }
+.btn.primary:hover { background: var(--accent-2); border-color: var(--accent-2); }
+.tool-card:hover, .cat-card:hover, .eng-row:hover { transform: none; border-color: var(--line-2);
+  box-shadow: 0 0 0 1px var(--line-2); }
+.chip.active { background: var(--accent); border-color: var(--accent); }
+
+/* severity-aware badges */
+.badge.tool { background: rgba(52,215,158,.14); color: var(--success); }
+.badge.scaffold { background: rgba(246,117,61,.16); color: var(--sev-high); }
+.tag { background: var(--accent-soft); color: var(--accent-2); }
+.tag.att { background: rgba(140,176,253,.14); color: var(--sev-info); }
+
+/* subcategory grouping in arsenal */
+.subcat { margin: 22px 0 10px; display:flex; align-items:center; gap:10px; }
+.subcat .sc-cat { font-size: 10px; letter-spacing:.1em; text-transform:uppercase; color: var(--ink-3); }
+.subcat .sc-name { font-size: 14px; font-weight: 600; color: var(--ink); }
+.subcat .sc-line { flex:1; height:1px; background: var(--line); }
+.subcat .sc-count { font-size: 11px; color: var(--ink-3); }
+
+/* left category tree for arsenal */
+.arsenal-wrap { display:grid; grid-template-columns: 220px 1fr; gap:18px; align-items:start; }
+.cat-tree { position: sticky; top: 0; }
+.cat-tree .ct-cat { font-size: 12px; font-weight:600; color: var(--ink-2); padding:7px 9px; border-radius:6px; cursor:pointer; display:flex; justify-content:space-between; }
+.cat-tree .ct-cat:hover { background: var(--panel); color: var(--ink); }
+.cat-tree .ct-cat.active { background: var(--accent-soft); color: var(--ink); }
+.cat-tree .ct-cat .n { color: var(--ink-3); font-size:11px; }
+@media (max-width: 1080px){ .arsenal-wrap{ grid-template-columns:1fr; } .cat-tree{ position:static; } }
+
+/* status pill row for dashboard, Falcon-style */
+.sev-legend { display:flex; gap:14px; flex-wrap:wrap; margin-top:4px; }
+.sev-legend span { font-size:11px; color:var(--ink-3); display:flex; align-items:center; gap:6px; }
+.sev-dot { width:8px; height:8px; border-radius:2px; display:inline-block; }
+
+/* pro tier badge — genuinely implemented + tested */
+.badge.pro { background: rgba(86,127,249,.18); color: var(--accent-2); box-shadow: inset 0 0 0 1px rgba(86,127,249,.4); }

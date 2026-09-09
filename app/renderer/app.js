@@ -109,7 +109,8 @@ function renderEngPill() {
 // ---------- dashboard ----------
 function renderDashboard() {
   const s = state.store;
-  const funcN = state.catalog.tools.filter(t => t.status === 'tool').length;
+  const proN = state.catalog.tools.filter(t => t.status === 'pro').length;
+  const funcN = state.catalog.tools.filter(t => t.status === 'pro' || t.status === 'tool').length;
   const eng = activeEng();
   const recent = s.activity.slice(0, 6);
   $('#view').innerHTML = `
@@ -121,7 +122,7 @@ function renderDashboard() {
       <div class="tile"><div class="t-num t-accent">${s.chains.length}</div><div class="t-lbl">attack chains</div></div>
       <div class="tile"><div class="t-num">${s.c2.listeners.length}</div><div class="t-lbl">C2 listeners</div></div>
       <div class="tile"><div class="t-num">${s.phishing.campaigns.length}</div><div class="t-lbl">phishing campaigns</div></div>
-      <div class="tile"><div class="t-num">${state.catalog.tools.length}</div><div class="t-lbl">tools · ${funcN} working</div></div>
+      <div class="tile"><div class="t-num">${state.catalog.tools.length}</div><div class="t-lbl">tools · ${proN} pro · ${funcN} working</div></div>
     </div>
 
     <div class="split">
@@ -287,7 +288,7 @@ function renderPayloads() {
         const st = t ? t.status : 'scaffold';
         return `<div class="tool-card">
           <div class="tc-head"><div class="tc-name">${esc(r.name)}</div>
-            <span class="badge ${st}">${st==='tool'?'working':'scaffold'}</span></div>
+            <span class="badge ${st}">${({pro:'pro',tool:'working',scaffold:'scaffold'})[st]||st}</span></div>
           <div class="tc-cat">${esc(r.tool)}</div>
           <div class="tc-desc">${esc(r.hint)}</div>
           <div class="tc-actions"><button class="btn primary small" data-act="launch" data-args='["${esc(r.tool)}"]'>▶ Generate</button></div>
@@ -340,24 +341,44 @@ function renderActivity() {
 
 // ---------- arsenal (secondary) ----------
 function renderArsenal() {
-  const cats = ['All', '★ Favorites', ...state.catalog.categories];
+  const cats = state.catalog.categories;
+  const counts = {}; state.catalog.tools.forEach(t => counts[t.category] = (counts[t.category]||0)+1);
   const list = state.catalog.tools.filter(t => {
     if (state.filter === '★ Favorites' && !state.favorites.includes(t.name)) return false;
     if (state.filter !== 'All' && state.filter !== '★ Favorites' && t.category !== state.filter) return false;
-    if (state.search) { const h = (t.name + t.description + t.category).toLowerCase(); if (!h.includes(state.search)) return false; }
+    if (state.search) { const h = (t.name + t.description + t.category + (t.subcategory||'')).toLowerCase(); if (!h.includes(state.search)) return false; }
     return true;
   });
+  // group visible tools by category → subcategory
+  const groups = {};
+  list.forEach(t => { (groups[t.category] = groups[t.category] || {}); (groups[t.category][t.subcategory] = groups[t.category][t.subcategory] || []).push(t); });
+  const tree = ['All', '★ Favorites', ...cats].map(c => {
+    const n = c === 'All' ? state.catalog.tools.length : c === '★ Favorites' ? state.favorites.length : counts[c] || 0;
+    return `<div class="ct-cat ${state.filter===c?'active':''}" data-act="setFilter" data-args='["${esc(c)}"]'>
+      <span>${esc(c)}</span><span class="n">${n}</span></div>`;
+  }).join('');
+
+  let body = '';
+  Object.keys(groups).forEach(cat => {
+    Object.keys(groups[cat]).forEach(sub => {
+      const tools = groups[cat][sub];
+      body += `<div class="subcat"><span class="sc-cat">${esc(cat)}</span><span class="sc-name">${esc(sub)}</span>
+        <span class="sc-line"></span><span class="sc-count">${tools.length}</span></div>
+        <div class="tool-grid">${tools.map(toolCard).join('')}</div>`;
+    });
+  });
+  if (!list.length) body = `<div class="empty">No tools match.</div>`;
+
   $('#view').innerHTML = `
-    <div class="head-row"><h2>Arsenal</h2><div class="sub">100 tools · the building blocks your operations call on</div></div>
-    <div class="filters">${cats.map(c => `<button class="chip ${state.filter===c?'active':''}" data-act="setFilter" data-args='["${esc(c)}"]'>${esc(c)}</button>`).join('')}</div>
-    <div class="tool-grid">${list.length ? list.map(toolCard).join('') : `<div class="empty">No tools match.</div>`}</div>`;
+    <div class="head-row"><h2>Arsenal</h2><div class="sub">100 tools across ${cats.length} categories · the building blocks your operations call on</div></div>
+    <div class="arsenal-wrap"><div class="cat-tree">${tree}</div><div>${body}</div></div>`;
 }
 function toolCard(t) {
   const fav = state.favorites.includes(t.name);
   return `<div class="tool-card"><div class="tc-head"><div class="tc-name">${esc(t.name)}</div>
-    <div class="tc-badges"><span class="badge ${t.status}">${t.status==='tool'?'working':'scaffold'}</span>
+    <div class="tc-badges"><span class="badge ${t.status}">${({pro:'pro · tested',tool:'working',scaffold:'scaffold'})[t.status]||t.status}</span>
       <span class="star ${fav?'on':''}" data-act="toggleFav" data-args='["${esc(t.name)}"]'>${fav?'★':'☆'}</span></div></div>
-    <div class="tc-cat">${esc(t.category)}</div><div class="tc-desc">${esc(t.description)}</div>
+    <div class="tc-cat">${esc(t.category)} · ${esc(t.subcategory||'')}</div><div class="tc-desc">${esc(t.description)}</div>
     <div class="tc-actions"><button class="btn primary small" data-act="launch" data-args='["${esc(t.name)}"]'>▶ Run</button>
       <button class="btn ghost small" data-act="openRepo" data-args='["${esc(t.repo)}"]'>repo ↗</button></div></div>`;
 }

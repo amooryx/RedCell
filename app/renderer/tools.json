@@ -1,18 +1,21 @@
 {
  "generated_tools": 100,
  "categories": [
+  "Command & Control",
+  "Initial Access & Phishing",
+  "Payloads & Execution",
+  "Reconnaissance",
   "Active Directory",
-  "Cloud & Container",
   "Credential Access",
-  "Defensive & Research",
-  "Evasion & OPSEC",
-  "Exfiltration",
   "Lateral Movement",
-  "Payload / Initial Access",
-  "Recon & OSINT",
-  "Red Team",
+  "Privilege Escalation",
+  "Evasion & OPSEC",
+  "Web Application",
+  "Cloud & Container",
   "Situational Awareness",
-  "Web AppSec"
+  "Exfiltration",
+  "Post-Exploitation",
+  "Defensive & Research"
  ],
  "tools": [
   {
@@ -26,7 +29,8 @@
     "discovery",
     "credential-access",
     "privilege-escalation"
-   ]
+   ],
+   "subcategory": "ACL & GPO"
   },
   {
    "name": "ad-enum",
@@ -39,7 +43,8 @@
     "discovery",
     "credential-access",
     "privilege-escalation"
-   ]
+   ],
+   "subcategory": "Enumeration"
   },
   {
    "name": "adcs-audit",
@@ -52,7 +57,8 @@
     "discovery",
     "credential-access",
     "privilege-escalation"
-   ]
+   ],
+   "subcategory": "Delegation & Coercion"
   },
   {
    "name": "asrep-roast",
@@ -65,7 +71,8 @@
     "discovery",
     "credential-access",
     "privilege-escalation"
-   ]
+   ],
+   "subcategory": "Kerberos"
   },
   {
    "name": "dc-checker",
@@ -78,7 +85,8 @@
     "discovery",
     "credential-access",
     "privilege-escalation"
-   ]
+   ],
+   "subcategory": "Enumeration"
   },
   {
    "name": "dcsync-check",
@@ -91,7 +99,8 @@
     "discovery",
     "credential-access",
     "privilege-escalation"
-   ]
+   ],
+   "subcategory": "Delegation & Coercion"
   },
   {
    "name": "delegation-hunter",
@@ -104,7 +113,8 @@
     "discovery",
     "credential-access",
     "privilege-escalation"
-   ]
+   ],
+   "subcategory": "Delegation & Coercion"
   },
   {
    "name": "gpo-hunter",
@@ -117,7 +127,8 @@
     "discovery",
     "credential-access",
     "privilege-escalation"
-   ]
+   ],
+   "subcategory": "ACL & GPO"
   },
   {
    "name": "kerbroast",
@@ -130,11 +141,12 @@
     "discovery",
     "credential-access",
     "privilege-escalation"
-   ]
+   ],
+   "subcategory": "Kerberos"
   },
   {
    "name": "lateral-trace",
-   "category": "Active Directory",
+   "category": "Privilege Escalation",
    "description": "Lateral movement paths",
    "entry": "lateral_trace.py",
    "status": "tool",
@@ -143,7 +155,8 @@
     "discovery",
     "credential-access",
     "privilege-escalation"
-   ]
+   ],
+   "subcategory": "Path Mapping"
   },
   {
    "name": "ldap-dump",
@@ -156,11 +169,12 @@
     "discovery",
     "credential-access",
     "privilege-escalation"
-   ]
+   ],
+   "subcategory": "Enumeration"
   },
   {
    "name": "pass-spray",
-   "category": "Active Directory",
+   "category": "Credential Access",
    "description": "Rate-aware password spraying",
    "entry": "pass_spray.py",
    "status": "tool",
@@ -169,11 +183,12 @@
     "discovery",
     "credential-access",
     "privilege-escalation"
-   ]
+   ],
+   "subcategory": "Cracking & Spraying"
   },
   {
    "name": "privesc-mapper",
-   "category": "Active Directory",
+   "category": "Privilege Escalation",
    "description": "Privilege escalation paths",
    "entry": "privesc_mapper.py",
    "status": "tool",
@@ -182,7 +197,8 @@
     "discovery",
     "credential-access",
     "privilege-escalation"
-   ]
+   ],
+   "subcategory": "Path Mapping"
   },
   {
    "name": "shadow-cred",
@@ -195,11 +211,12 @@
     "discovery",
     "credential-access",
     "privilege-escalation"
-   ]
+   ],
+   "subcategory": "Delegation & Coercion"
   },
   {
    "name": "smb-audit",
-   "category": "Active Directory",
+   "category": "Lateral Movement",
    "description": "SMB share and signing review",
    "entry": "smb_audit.py",
    "status": "tool",
@@ -208,7 +225,8 @@
     "discovery",
     "credential-access",
     "privilege-escalation"
-   ]
+   ],
+   "subcategory": "Access & Pivoting"
   },
   {
    "name": "spn-scanner",
@@ -221,7 +239,8 @@
     "discovery",
     "credential-access",
     "privilege-escalation"
-   ]
+   ],
+   "subcategory": "Enumeration"
   },
   {
    "name": "ticket-forge",
@@ -234,7 +253,8 @@
     "discovery",
     "credential-access",
     "privilege-escalation"
-   ]
+   ],
+   "subcategory": "Kerberos"
   },
   {
    "name": "trust-mapper",
@@ -247,7 +267,8 @@
     "discovery",
     "credential-access",
     "privilege-escalation"
-   ]
+   ],
+   "subcategory": "Enumeration"
   },
   {
    "name": "aws-bucket-brute",
@@ -259,7 +280,8 @@
    "tactics": [
     "discovery",
     "privilege-escalation"
-   ]
+   ],
+   "subcategory": "AWS"
   },
   {
    "name": "aws-pivot",
@@ -271,7 +293,8 @@
    "tactics": [
     "discovery",
     "privilege-escalation"
-   ]
+   ],
+   "subcategory": "AWS"
   },
   {
    "name": "azure-enum",
@@ -283,7 +306,8 @@
    "tactics": [
     "discovery",
     "privilege-escalation"
-   ]
+   ],
+   "subcategory": "Azure & GCP"
   },
   {
    "name": "Cloud-Storage-Artifacts",
@@ -295,7 +319,8 @@
    "tactics": [
     "discovery",
     "privilege-escalation"
-   ]
+   ],
+   "subcategory": "Kubernetes & Storage"
   },
   {
    "name": "gcp-probe",
@@ -307,7 +332,8 @@
    "tactics": [
     "discovery",
     "privilege-escalation"
-   ]
+   ],
+   "subcategory": "Azure & GCP"
   },
   {
    "name": "k8s-audit",
@@ -319,7 +345,8 @@
    "tactics": [
     "discovery",
     "privilege-escalation"
-   ]
+   ],
+   "subcategory": "Kubernetes & Storage"
   },
   {
    "name": "lambda-abuse",
@@ -331,7 +358,8 @@
    "tactics": [
     "discovery",
     "privilege-escalation"
-   ]
+   ],
+   "subcategory": "AWS"
   },
   {
    "name": "browser-creds",
@@ -342,7 +370,8 @@
    "repo": "https://github.com/amooryx/browser-creds",
    "tactics": [
     "credential-access"
-   ]
+   ],
+   "subcategory": "Dumping"
   },
   {
    "name": "cred-vault",
@@ -353,7 +382,8 @@
    "repo": "https://github.com/amooryx/cred-vault",
    "tactics": [
     "credential-access"
-   ]
+   ],
+   "subcategory": "Dumping"
   },
   {
    "name": "dpapi-decrypt",
@@ -364,18 +394,20 @@
    "repo": "https://github.com/amooryx/dpapi-decrypt",
    "tactics": [
     "credential-access"
-   ]
+   ],
+   "subcategory": "Dumping"
   },
   {
    "name": "hash-ident",
    "category": "Credential Access",
    "description": "Identify hash types and suggest appropriate cracking modes",
    "entry": "hash_ident.py",
-   "status": "scaffold",
+   "status": "pro",
    "repo": "https://github.com/amooryx/hash-ident",
    "tactics": [
     "credential-access"
-   ]
+   ],
+   "subcategory": "Cracking & Spraying"
   },
   {
    "name": "keepass-audit",
@@ -386,7 +418,8 @@
    "repo": "https://github.com/amooryx/keepass-audit",
    "tactics": [
     "credential-access"
-   ]
+   ],
+   "subcategory": "Dumping"
   },
   {
    "name": "ntds-parse",
@@ -397,18 +430,20 @@
    "repo": "https://github.com/amooryx/ntds-parse",
    "tactics": [
     "credential-access"
-   ]
+   ],
+   "subcategory": "Dumping"
   },
   {
    "name": "http-headers-auditor",
-   "category": "Defensive & Research",
+   "category": "Web Application",
    "description": "Security header posture",
-   "entry": "http_headers_auditor.py",
-   "status": "tool",
+   "entry": "main.py",
+   "status": "pro",
    "repo": "https://github.com/amooryx/http-headers-auditor",
    "tactics": [
     "discovery"
-   ]
+   ],
+   "subcategory": "Filters & Exposure"
   },
   {
    "name": "MalwareFusionLightGBM",
@@ -419,7 +454,8 @@
    "repo": "https://github.com/amooryx/MalwareFusionLightGBM",
    "tactics": [
     "discovery"
-   ]
+   ],
+   "subcategory": "Detection & Forensics"
   },
   {
    "name": "ProcSentinel",
@@ -430,7 +466,8 @@
    "repo": "https://github.com/amooryx/ProcSentinel",
    "tactics": [
     "discovery"
-   ]
+   ],
+   "subcategory": "Detection & Forensics"
   },
   {
    "name": "amsi-check",
@@ -441,7 +478,8 @@
    "repo": "https://github.com/amooryx/amsi-check",
    "tactics": [
     "defense-evasion"
-   ]
+   ],
+   "subcategory": "AV / EDR"
   },
   {
    "name": "artifact-tracker",
@@ -452,18 +490,20 @@
    "repo": "https://github.com/amooryx/artifact-tracker",
    "tactics": [
     "defense-evasion"
-   ]
+   ],
+   "subcategory": "Operational Hygiene"
   },
   {
    "name": "entropy-check",
    "category": "Evasion & OPSEC",
    "description": "Measure file entropy to flag packed or encrypted artefacts",
    "entry": "entropy_check.py",
-   "status": "scaffold",
+   "status": "pro",
    "repo": "https://github.com/amooryx/entropy-check",
    "tactics": [
     "defense-evasion"
-   ]
+   ],
+   "subcategory": "Obfuscation & Timing"
   },
   {
    "name": "opsec-lint",
@@ -474,7 +514,8 @@
    "repo": "https://github.com/amooryx/opsec-lint",
    "tactics": [
     "defense-evasion"
-   ]
+   ],
+   "subcategory": "Operational Hygiene"
   },
   {
    "name": "script-obfuscator",
@@ -485,7 +526,8 @@
    "repo": "https://github.com/amooryx/script-obfuscator",
    "tactics": [
     "defense-evasion"
-   ]
+   ],
+   "subcategory": "Obfuscation & Timing"
   },
   {
    "name": "sleep-mask",
@@ -496,7 +538,8 @@
    "repo": "https://github.com/amooryx/sleep-mask",
    "tactics": [
     "defense-evasion"
-   ]
+   ],
+   "subcategory": "Obfuscation & Timing"
   },
   {
    "name": "cloud-exfil",
@@ -508,7 +551,8 @@
    "tactics": [
     "exfiltration",
     "command-and-control"
-   ]
+   ],
+   "subcategory": "Data Staging"
   },
   {
    "name": "dns-exfil",
@@ -520,7 +564,8 @@
    "tactics": [
     "exfiltration",
     "command-and-control"
-   ]
+   ],
+   "subcategory": "Covert Channels"
   },
   {
    "name": "http-tunnel",
@@ -532,7 +577,8 @@
    "tactics": [
     "exfiltration",
     "command-and-control"
-   ]
+   ],
+   "subcategory": "Covert Channels"
   },
   {
    "name": "icmp-tunnel",
@@ -544,7 +590,8 @@
    "tactics": [
     "exfiltration",
     "command-and-control"
-   ]
+   ],
+   "subcategory": "Covert Channels"
   },
   {
    "name": "stego-exfil",
@@ -556,7 +603,8 @@
    "tactics": [
     "exfiltration",
     "command-and-control"
-   ]
+   ],
+   "subcategory": "Data Staging"
   },
   {
    "name": "dcom-exec",
@@ -567,7 +615,8 @@
    "repo": "https://github.com/amooryx/dcom-exec",
    "tactics": [
     "lateral-movement"
-   ]
+   ],
+   "subcategory": "Remote Execution"
   },
   {
    "name": "rdp-enum",
@@ -578,7 +627,8 @@
    "repo": "https://github.com/amooryx/rdp-enum",
    "tactics": [
     "lateral-movement"
-   ]
+   ],
+   "subcategory": "Access & Pivoting"
   },
   {
    "name": "smb-exec",
@@ -589,7 +639,8 @@
    "repo": "https://github.com/amooryx/smb-exec",
    "tactics": [
     "lateral-movement"
-   ]
+   ],
+   "subcategory": "Remote Execution"
   },
   {
    "name": "ssh-pivot",
@@ -600,7 +651,8 @@
    "repo": "https://github.com/amooryx/ssh-pivot",
    "tactics": [
     "lateral-movement"
-   ]
+   ],
+   "subcategory": "Access & Pivoting"
   },
   {
    "name": "winrm-exec",
@@ -611,7 +663,8 @@
    "repo": "https://github.com/amooryx/winrm-exec",
    "tactics": [
     "lateral-movement"
-   ]
+   ],
+   "subcategory": "Remote Execution"
   },
   {
    "name": "wmi-exec",
@@ -622,11 +675,12 @@
    "repo": "https://github.com/amooryx/wmi-exec",
    "tactics": [
     "lateral-movement"
-   ]
+   ],
+   "subcategory": "Remote Execution"
   },
   {
    "name": "hta-builder",
-   "category": "Payload / Initial Access",
+   "category": "Initial Access & Phishing",
    "description": "HTA template scaffold for authorised initial-access testing",
    "entry": "hta_builder.py",
    "status": "scaffold",
@@ -635,11 +689,12 @@
     "initial-access",
     "execution",
     "resource-development"
-   ]
+   ],
+   "subcategory": "Phishing"
   },
   {
    "name": "iso-pack",
-   "category": "Payload / Initial Access",
+   "category": "Initial Access & Phishing",
    "description": "Package payloads into ISO/container formats for delivery testing",
    "entry": "iso_pack.py",
    "status": "scaffold",
@@ -648,11 +703,12 @@
     "initial-access",
     "execution",
     "resource-development"
-   ]
+   ],
+   "subcategory": "Payload Delivery"
   },
   {
    "name": "lnk-forge",
-   "category": "Payload / Initial Access",
+   "category": "Initial Access & Phishing",
    "description": "Windows .lnk shortcut inspector and builder for red-team labs",
    "entry": "lnk_forge.py",
    "status": "scaffold",
@@ -661,11 +717,12 @@
     "initial-access",
     "execution",
     "resource-development"
-   ]
+   ],
+   "subcategory": "Payload Delivery"
   },
   {
    "name": "macro-gen",
-   "category": "Payload / Initial Access",
+   "category": "Initial Access & Phishing",
    "description": "Office macro template generator for authorised phishing simulations",
    "entry": "macro_gen.py",
    "status": "scaffold",
@@ -674,11 +731,12 @@
     "initial-access",
     "execution",
     "resource-development"
-   ]
+   ],
+   "subcategory": "Phishing"
   },
   {
    "name": "phish-planner",
-   "category": "Payload / Initial Access",
+   "category": "Initial Access & Phishing",
    "description": "Track and plan authorised phishing campaign pretexts and targets",
    "entry": "phish_planner.py",
    "status": "scaffold",
@@ -687,99 +745,108 @@
     "initial-access",
     "execution",
     "resource-development"
-   ]
+   ],
+   "subcategory": "Phishing"
   },
   {
    "name": "asn-mapper",
-   "category": "Recon & OSINT",
+   "category": "Reconnaissance",
    "description": "ASN to netblock to host mapping",
    "entry": "asn_mapper.py",
    "status": "tool",
    "repo": "https://github.com/amooryx/asn-mapper",
    "tactics": [
     "reconnaissance"
-   ]
+   ],
+   "subcategory": "Network & Infrastructure"
   },
   {
    "name": "cert-recon",
-   "category": "Recon & OSINT",
+   "category": "Reconnaissance",
    "description": "Certificate transparency mining",
    "entry": "cert_recon.py",
-   "status": "tool",
+   "status": "pro",
    "repo": "https://github.com/amooryx/cert-recon",
    "tactics": [
     "reconnaissance"
-   ]
+   ],
+   "subcategory": "Subdomain & DNS"
   },
   {
    "name": "dns-recon",
-   "category": "Recon & OSINT",
+   "category": "Reconnaissance",
    "description": "DNS discovery",
    "entry": "dns_recon.py",
-   "status": "tool",
+   "status": "pro",
    "repo": "https://github.com/amooryx/dns-recon",
    "tactics": [
     "reconnaissance"
-   ]
+   ],
+   "subcategory": "Subdomain & DNS"
   },
   {
    "name": "email-harvest",
-   "category": "Recon & OSINT",
+   "category": "Reconnaissance",
    "description": "Email OSINT",
    "entry": "email_harvest.py",
    "status": "tool",
    "repo": "https://github.com/amooryx/email-harvest",
    "tactics": [
     "reconnaissance"
-   ]
+   ],
+   "subcategory": "OSINT"
   },
   {
    "name": "git-recon",
-   "category": "Recon & OSINT",
+   "category": "Reconnaissance",
    "description": "Exposed VCS discovery",
    "entry": "git_recon.py",
-   "status": "tool",
+   "status": "pro",
    "repo": "https://github.com/amooryx/git-recon",
    "tactics": [
     "reconnaissance"
-   ]
+   ],
+   "subcategory": "OSINT"
   },
   {
    "name": "linkedin-recon",
-   "category": "Recon & OSINT",
+   "category": "Reconnaissance",
    "description": "LinkedIn OSINT",
    "entry": "linkedin_recon.py",
    "status": "tool",
    "repo": "https://github.com/amooryx/linkedin-recon",
    "tactics": [
     "reconnaissance"
-   ]
+   ],
+   "subcategory": "OSINT"
   },
   {
    "name": "meta-extract",
-   "category": "Recon & OSINT",
+   "category": "Reconnaissance",
    "description": "Document metadata extraction",
    "entry": "meta_extract.py",
    "status": "tool",
    "repo": "https://github.com/amooryx/meta-extract",
    "tactics": [
     "reconnaissance"
-   ]
+   ],
+   "subcategory": "OSINT"
   },
   {
    "name": "param-mine",
-   "category": "Recon & OSINT",
+   "category": "Reconnaissance",
    "description": "Hidden parameter discovery",
    "entry": "param_mine.py",
    "status": "tool",
    "repo": "https://github.com/amooryx/param-mine",
    "tactics": [
     "reconnaissance"
-   ]
+   ],
+   "subcategory": "Web Discovery"
   },
   {
    "name": "ReconPal",
-   "category": "Recon & OSINT",
+   "category": "Reconnaissance",
    "description": "Recon + config audit, with MCP deployment discovery",
    "entry": "-m reconpal",
    "status": "tool",
@@ -787,66 +854,72 @@
    "module": true,
    "tactics": [
     "reconnaissance"
-   ]
+   ],
+   "subcategory": "Web Discovery"
   },
   {
    "name": "snmp-walker",
-   "category": "Recon & OSINT",
+   "category": "Reconnaissance",
    "description": "SNMP enumeration",
    "entry": "snmp_walker.py",
    "status": "tool",
    "repo": "https://github.com/amooryx/snmp-walker",
    "tactics": [
     "reconnaissance"
-   ]
+   ],
+   "subcategory": "Network & Infrastructure"
   },
   {
    "name": "stealth-scan",
-   "category": "Recon & OSINT",
+   "category": "Reconnaissance",
    "description": "Low-noise port scanning",
    "entry": "stealth_scan.py",
-   "status": "tool",
+   "status": "pro",
    "repo": "https://github.com/amooryx/stealth-scan",
    "tactics": [
     "reconnaissance"
-   ]
+   ],
+   "subcategory": "Network & Infrastructure"
   },
   {
    "name": "subdomain-storm",
-   "category": "Recon & OSINT",
+   "category": "Reconnaissance",
    "description": "Subdomain enumeration at speed",
    "entry": "subdomain_storm.py",
-   "status": "tool",
+   "status": "pro",
    "repo": "https://github.com/amooryx/subdomain-storm",
    "tactics": [
     "reconnaissance"
-   ]
+   ],
+   "subcategory": "Subdomain & DNS"
   },
   {
    "name": "vhost-scanner",
-   "category": "Recon & OSINT",
+   "category": "Reconnaissance",
    "description": "Virtual host discovery",
    "entry": "vhost_scanner.py",
    "status": "tool",
    "repo": "https://github.com/amooryx/vhost-scanner",
    "tactics": [
     "reconnaissance"
-   ]
+   ],
+   "subcategory": "Subdomain & DNS"
   },
   {
    "name": "vpn-probe",
-   "category": "Recon & OSINT",
+   "category": "Reconnaissance",
    "description": "VPN endpoint fingerprinting",
    "entry": "vpn_probe.py",
    "status": "tool",
    "repo": "https://github.com/amooryx/vpn-probe",
    "tactics": [
     "reconnaissance"
-   ]
+   ],
+   "subcategory": "Network & Infrastructure"
   },
   {
    "name": "c2-profile-gen",
-   "category": "Red Team",
+   "category": "Command & Control",
    "description": "Malleable C2 profiles",
    "entry": "c2_profile_gen.py",
    "status": "tool",
@@ -855,11 +928,12 @@
     "command-and-control",
     "execution",
     "persistence"
-   ]
+   ],
+   "subcategory": "Profiles & Redirectors"
   },
   {
    "name": "dns-beacon",
-   "category": "Red Team",
+   "category": "Command & Control",
    "description": "DNS-channel beaconing",
    "entry": "dns_beacon.py",
    "status": "tool",
@@ -868,11 +942,12 @@
     "command-and-control",
     "execution",
     "persistence"
-   ]
+   ],
+   "subcategory": "Listeners & Beacons"
   },
   {
    "name": "edr-map",
-   "category": "Red Team",
+   "category": "Evasion & OPSEC",
    "description": "Defensive-control mapping",
    "entry": "edr_map.py",
    "status": "tool",
@@ -881,11 +956,12 @@
     "command-and-control",
     "execution",
     "persistence"
-   ]
+   ],
+   "subcategory": "AV / EDR"
   },
   {
    "name": "loot-harvest",
-   "category": "Red Team",
+   "category": "Post-Exploitation",
    "description": "Loot collection",
    "entry": "loot_harvest.py",
    "status": "tool",
@@ -894,11 +970,12 @@
     "command-and-control",
     "execution",
     "persistence"
-   ]
+   ],
+   "subcategory": "Persistence & Collection"
   },
   {
    "name": "persistence-kit",
-   "category": "Red Team",
+   "category": "Post-Exploitation",
    "description": "Persistence mechanisms",
    "entry": "persistence_kit.py",
    "status": "tool",
@@ -907,11 +984,12 @@
     "command-and-control",
     "execution",
     "persistence"
-   ]
+   ],
+   "subcategory": "Persistence & Collection"
   },
   {
    "name": "phantom-c2",
-   "category": "Red Team",
+   "category": "Command & Control",
    "description": "Lightweight HTTP/S C2",
    "entry": "phantom_c2.py",
    "status": "tool",
@@ -920,11 +998,12 @@
     "command-and-control",
     "execution",
     "persistence"
-   ]
+   ],
+   "subcategory": "Listeners & Beacons"
   },
   {
    "name": "process-inject",
-   "category": "Red Team",
+   "category": "Payloads & Execution",
    "description": "Process injection",
    "entry": "process_inject.py",
    "status": "tool",
@@ -933,11 +1012,12 @@
     "command-and-control",
     "execution",
     "persistence"
-   ]
+   ],
+   "subcategory": "Shellcode & Injection"
   },
   {
    "name": "redirector",
-   "category": "Red Team",
+   "category": "Command & Control",
    "description": "Traffic redirection",
    "entry": "redirector.py",
    "status": "tool",
@@ -946,11 +1026,12 @@
     "command-and-control",
     "execution",
     "persistence"
-   ]
+   ],
+   "subcategory": "Profiles & Redirectors"
   },
   {
    "name": "Rev_Shell",
-   "category": "Red Team",
+   "category": "Payloads & Execution",
    "description": "Reverse shell generator (11+ languages)",
    "entry": "shell.py",
    "status": "tool",
@@ -959,31 +1040,34 @@
     "command-and-control",
     "execution",
     "persistence"
-   ]
+   ],
+   "subcategory": "Reverse Shells"
   },
   {
    "name": "shellcode-gen",
-   "category": "Red Team",
+   "category": "Payloads & Execution",
    "description": "Shellcode generation",
    "entry": "shellcode_gen.py",
-   "status": "tool",
+   "status": "pro",
    "repo": "https://github.com/amooryx/shellcode-gen",
    "tactics": [
     "command-and-control",
     "execution",
     "persistence"
-   ]
+   ],
+   "subcategory": "Shellcode & Injection"
   },
   {
    "name": "av-enum",
-   "category": "Situational Awareness",
+   "category": "Evasion & OPSEC",
    "description": "Enumerate installed AV/EDR products and services on a host",
    "entry": "av_enum.py",
    "status": "scaffold",
    "repo": "https://github.com/amooryx/av-enum",
    "tactics": [
     "discovery"
-   ]
+   ],
+   "subcategory": "AV / EDR"
   },
   {
    "name": "host-recon",
@@ -994,7 +1078,8 @@
    "repo": "https://github.com/amooryx/host-recon",
    "tactics": [
     "discovery"
-   ]
+   ],
+   "subcategory": "Host Triage"
   },
   {
    "name": "token-hunter",
@@ -1005,7 +1090,8 @@
    "repo": "https://github.com/amooryx/token-hunter",
    "tactics": [
     "discovery"
-   ]
+   ],
+   "subcategory": "Host Triage"
   },
   {
    "name": "uac-audit",
@@ -1016,11 +1102,12 @@
    "repo": "https://github.com/amooryx/uac-audit",
    "tactics": [
     "discovery"
-   ]
+   ],
+   "subcategory": "Host Triage"
   },
   {
    "name": "api-fuzz",
-   "category": "Web AppSec",
+   "category": "Web Application",
    "description": "API fuzzing",
    "entry": "api_fuzz.py",
    "status": "tool",
@@ -1028,11 +1115,12 @@
    "tactics": [
     "initial-access",
     "execution"
-   ]
+   ],
+   "subcategory": "Client-Side & API"
   },
   {
    "name": "cache-probe",
-   "category": "Web AppSec",
+   "category": "Web Application",
    "description": "Web cache poisoning",
    "entry": "cache_probe.py",
    "status": "tool",
@@ -1040,23 +1128,25 @@
    "tactics": [
     "initial-access",
     "execution"
-   ]
+   ],
+   "subcategory": "Server-Side"
   },
   {
    "name": "cors-tester",
-   "category": "Web AppSec",
+   "category": "Web Application",
    "description": "CORS misconfiguration",
-   "entry": "cors_tester.py",
-   "status": "tool",
+   "entry": "main.py",
+   "status": "pro",
    "repo": "https://github.com/amooryx/cors-tester",
    "tactics": [
     "initial-access",
     "execution"
-   ]
+   ],
+   "subcategory": "Client-Side & API"
   },
   {
    "name": "graphql-attack-mapper",
-   "category": "Web AppSec",
+   "category": "Web Application",
    "description": "GraphQL abuse",
    "entry": "graphql_attack_mapper.py",
    "status": "tool",
@@ -1064,11 +1154,12 @@
    "tactics": [
     "initial-access",
     "execution"
-   ]
+   ],
+   "subcategory": "Client-Side & API"
   },
   {
    "name": "host-injector",
-   "category": "Web AppSec",
+   "category": "Web Application",
    "description": "Host header injection",
    "entry": "host_injector.py",
    "status": "tool",
@@ -1076,11 +1167,12 @@
    "tactics": [
     "initial-access",
     "execution"
-   ]
+   ],
+   "subcategory": "Server-Side"
   },
   {
    "name": "jwt-attack-suite",
-   "category": "Web AppSec",
+   "category": "Web Application",
    "description": "JWT alg:none, confusion, weak HMAC, kid injection",
    "entry": "jwt_attack_suite.py",
    "status": "tool",
@@ -1088,11 +1180,12 @@
    "tactics": [
     "initial-access",
     "execution"
-   ]
+   ],
+   "subcategory": "Auth & Tokens"
   },
   {
    "name": "oauth-auditor",
-   "category": "Web AppSec",
+   "category": "Web Application",
    "description": "OAuth / OIDC flow weaknesses",
    "entry": "oauth_auditor.py",
    "status": "tool",
@@ -1100,23 +1193,25 @@
    "tactics": [
     "initial-access",
     "execution"
-   ]
+   ],
+   "subcategory": "Auth & Tokens"
   },
   {
    "name": "open-redirect-scanner",
-   "category": "Web AppSec",
+   "category": "Web Application",
    "description": "Open redirect chains",
    "entry": "open_redirect_scanner.py",
-   "status": "tool",
+   "status": "pro",
    "repo": "https://github.com/amooryx/open-redirect-scanner",
    "tactics": [
     "initial-access",
     "execution"
-   ]
+   ],
+   "subcategory": "Filters & Exposure"
   },
   {
    "name": "path-traversal",
-   "category": "Web AppSec",
+   "category": "Web Application",
    "description": "Path traversal",
    "entry": "path_traversal.py",
    "status": "tool",
@@ -1124,11 +1219,12 @@
    "tactics": [
     "initial-access",
     "execution"
-   ]
+   ],
+   "subcategory": "Injection"
   },
   {
    "name": "proto-pollute",
-   "category": "Web AppSec",
+   "category": "Web Application",
    "description": "Prototype pollution",
    "entry": "proto_pollute.py",
    "status": "tool",
@@ -1136,23 +1232,25 @@
    "tactics": [
     "initial-access",
     "execution"
-   ]
+   ],
+   "subcategory": "Client-Side & API"
   },
   {
    "name": "secret-scanner",
-   "category": "Web AppSec",
+   "category": "Web Application",
    "description": "Credential exposure scanning",
-   "entry": "secret_scanner.py",
-   "status": "tool",
+   "entry": "main.py",
+   "status": "pro",
    "repo": "https://github.com/amooryx/secret-scanner",
    "tactics": [
     "initial-access",
     "execution"
-   ]
+   ],
+   "subcategory": "Filters & Exposure"
   },
   {
    "name": "smuggler",
-   "category": "Web AppSec",
+   "category": "Web Application",
    "description": "HTTP request smuggling",
    "entry": "smuggler.py",
    "status": "tool",
@@ -1160,11 +1258,12 @@
    "tactics": [
     "initial-access",
     "execution"
-   ]
+   ],
+   "subcategory": "Server-Side"
   },
   {
    "name": "ssrf-scanner",
-   "category": "Web AppSec",
+   "category": "Web Application",
    "description": "SSRF with IMDS and OOB testing",
    "entry": "ssrf_scanner.py",
    "status": "tool",
@@ -1172,11 +1271,12 @@
    "tactics": [
     "initial-access",
     "execution"
-   ]
+   ],
+   "subcategory": "Server-Side"
   },
   {
    "name": "ssti-hunter",
-   "category": "Web AppSec",
+   "category": "Web Application",
    "description": "Template injection",
    "entry": "ssti_hunter.py",
    "status": "tool",
@@ -1184,23 +1284,25 @@
    "tactics": [
     "initial-access",
     "execution"
-   ]
+   ],
+   "subcategory": "Injection"
   },
   {
    "name": "waf-bypass",
-   "category": "Web AppSec",
+   "category": "Web Application",
    "description": "WAF filter evasion",
    "entry": "waf_bypass.py",
-   "status": "tool",
+   "status": "pro",
    "repo": "https://github.com/amooryx/waf-bypass",
    "tactics": [
     "initial-access",
     "execution"
-   ]
+   ],
+   "subcategory": "Filters & Exposure"
   },
   {
    "name": "xxe-injector",
-   "category": "Web AppSec",
+   "category": "Web Application",
    "description": "XML external entity injection",
    "entry": "xxe_injector.py",
    "status": "tool",
@@ -1208,8 +1310,76 @@
    "tactics": [
     "initial-access",
     "execution"
-   ]
+   ],
+   "subcategory": "Injection"
   }
  ],
- "schema": 2
+ "schema": 4,
+ "taxonomy": {
+  "Command & Control": [
+   "Listeners & Beacons",
+   "Profiles & Redirectors"
+  ],
+  "Initial Access & Phishing": [
+   "Phishing",
+   "Payload Delivery"
+  ],
+  "Payloads & Execution": [
+   "Shellcode & Injection",
+   "Reverse Shells"
+  ],
+  "Reconnaissance": [
+   "Subdomain & DNS",
+   "Network & Infrastructure",
+   "OSINT",
+   "Web Discovery"
+  ],
+  "Active Directory": [
+   "Enumeration",
+   "Kerberos",
+   "Delegation & Coercion",
+   "ACL & GPO"
+  ],
+  "Credential Access": [
+   "Dumping",
+   "Cracking & Spraying"
+  ],
+  "Lateral Movement": [
+   "Remote Execution",
+   "Access & Pivoting"
+  ],
+  "Privilege Escalation": [
+   "Path Mapping"
+  ],
+  "Evasion & OPSEC": [
+   "AV / EDR",
+   "Obfuscation & Timing",
+   "Operational Hygiene"
+  ],
+  "Web Application": [
+   "Injection",
+   "Auth & Tokens",
+   "Server-Side",
+   "Client-Side & API",
+   "Filters & Exposure"
+  ],
+  "Cloud & Container": [
+   "AWS",
+   "Azure & GCP",
+   "Kubernetes & Storage"
+  ],
+  "Situational Awareness": [
+   "Host Triage"
+  ],
+  "Exfiltration": [
+   "Covert Channels",
+   "Data Staging"
+  ],
+  "Post-Exploitation": [
+   "Persistence & Collection"
+  ],
+  "Defensive & Research": [
+   "Detection & Forensics"
+  ]
+ }
 }

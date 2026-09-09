@@ -25,11 +25,17 @@ Every operations module works **standalone** — you do not need the 100 tool re
 chains, track C2 sessions, run phishing campaigns, or log activity. The tools are an optional
 integration layer that individual steps can call.
 
+The interface follows the **CrowdStrike Falcon** design language (tokens adapted from the open-source
+`CrowdStrike/falcon-styles`): a pure-black SOC canvas, blue primary, red/orange/amber severity coding.
+The 100 tools are organised into **15 categories and 35 subcategories**, browsable from a Falcon-style
+category tree.
+
 > **Honesty note.** RedCell is an operator console, not a from-scratch C2 beacon or a live phishing
 > mailer. It **manages** listeners/sessions/campaigns and **drives your tools**; a live beacon callback
-> or real email delivery uses your own infrastructure, configured per module. And of the 100 tools,
-> **60 are working** and **40 are scaffolds** under development — each is labelled in the app. Nothing
-> is dressed up as more finished than it is.
+> or real email delivery uses your own infrastructure, configured per module. The 100 tools are
+> labelled in three honest tiers — **pro · tested** (13, genuinely implemented on a shared `rclib`
+> runtime and verified to do real work), **working** (49), and **scaffold** (38, under active
+> development). Nothing is dressed up as more finished than it is; the pro tier grows each release.
 
 ## The operations
 

@@ -47,7 +47,7 @@ app.whenReady().then(async () => {
 
   // arsenal + INLINE onclick handlers (the CSP-sensitive path)
   await check('Arsenal renders tool cards', `(()=>{[...document.querySelectorAll('.nav-item')].find(x=>x.dataset.view==='arsenal').click();return document.querySelectorAll('.tool-card').length;})()`);
-  await check('inline onclick: chip filter reacts', `(async()=>{const c=[...document.querySelectorAll('.chip')].find(x=>x.textContent.trim()==='Active Directory');if(!c)return false;c.click();await new Promise(r=>setTimeout(r,150));const now=[...document.querySelectorAll('.chip')].find(x=>x.textContent.trim()==='Active Directory');return now && now.classList.contains('active') && document.querySelectorAll('.tool-card').length>0;})()`);
+  await check('category filter + subcategory grouping', `(async()=>{const c=[...document.querySelectorAll('.ct-cat')].find(x=>x.textContent.includes('Active Directory'));if(!c)return false;c.click();await new Promise(r=>setTimeout(r,150));const cards=document.querySelectorAll('.tool-card').length;const subs=document.querySelectorAll('.subcat').length;return cards>0 && subs>0;})()`);
   await check('inline onclick: Run opens modal', `(async()=>{const b=[...document.querySelectorAll('.tool-card .btn.primary')][0];if(!b)return false;b.click();await new Promise(r=>setTimeout(r,150));return !!document.querySelector('.modal-back');})()`);
   await check('modal closes', `(async()=>{const x=document.querySelector('.modal-back [data-x]');if(x)x.click();await new Promise(r=>setTimeout(r,100));return !document.querySelector('.modal-back');})()`);
 

@@ -27,8 +27,11 @@ ok(Array.isArray(cat.tools) && cat.tools.length === 100, `catalog has 100 tools 
 ok(cat.tools.every(t => t.name && t.category && t.entry && t.status), 'every tool has name/category/entry/status');
 ok(cat.tools.every(t => Array.isArray(t.tactics) && t.tactics.length), 'every tool has ATT&CK tactics');
 ok(new Set(cat.tools.map(t => t.name)).size === cat.tools.length, 'no duplicate tool names');
-const funcN = cat.tools.filter(t => t.status === 'tool').length;
-ok(funcN === 60, `60 working tools flagged (got ${funcN})`);
+const funcN = cat.tools.filter(t => t.status === 'pro' || t.status === 'tool').length;
+const proN = cat.tools.filter(t => t.status === 'pro').length;
+ok(funcN === 62, `62 functional tools (got ${funcN})`);
+ok(proN === 13, `13 pro/tested tools (got ${proN})`);
+ok(cat.tools.every(t => t.subcategory), 'every tool has a subcategory');
 
 // JS parses (syntax check main, preload, renderer)
 for (const f of ['app/main.js', 'app/preload.js', 'app/renderer/app.js', 'scripts/smoke.js']) {
